@@ -970,9 +970,11 @@ guesses smartly.
 
   1. Cursor on opening {. Type =% to indent the whole block.
 
---> if (x > 0) {
--->     printf("Positive");
---> printf("Done");  // Oops, bad indent
+    if (x > 0) {
+                 printf("Positive");
+
+       printf("Done"); 
+                                }
 
   2. u undo. Select lines with V, j (visual line), = to reindent selection.
 
