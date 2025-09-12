@@ -1,8 +1,6 @@
-# VimTutor Advanced: Because Basic VimTutor is for Wusses Who Can't Handle Real Editing
+# VimTutor Advanced: Because the Stock One's for Noobs, But This'll Teach You to Edit Without Crying for Mommy 
 
-Listen up, you keyboard-poking amateurs. This repo ain't your grandma's vimtutor—it's an opinionated gut-punch variant cooked up by Ryan Gerard Wilson (ryangerardwilson.com) to teach workflows that actually matter when you're not just doodling "hello world." Lessons 1-6? Straight rip from the original vimtutor 1.5, because basics are basics. But Lesson 7? That's the juice: macros, visual blocks, shifts, auto-indents, and other black magic the stock tutor pretends doesn't exist. If you're still using a mouse in 2025, GTFO and install Vim already.
-
-This setup lets you fuck around in the tutor file without turning it into your personal graffiti wall. Edits? Vaporized on exit. Run it again, fresh hell every time. No more "oops, I broke the sample text" bullshit.
+This repo ain't your grandma's vimtutor—it's an opinionated gut-punch variant cooked up by Ryan Gerard Wilson (ryangerardwilson.com) to teach workflows that actually matter when you're not just doodling "hello world." Lessons 1-6? Straight rip from the original vimtutor 1.5, because basics are basics. But Lesson 7? That's the juice: macros, visual blocks, shifts, auto-indents, and other black magic the stock tutor pretends doesn't exist. If you're still using a mouse in 2025, GTFO and install Vim already.
 
 ## Requirements
 - Python 3.x (because who the hell is still on 2? Fix your shit.)
