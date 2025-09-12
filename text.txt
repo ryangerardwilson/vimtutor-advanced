@@ -770,10 +770,9 @@ d + motion: dw deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
 --> Duplicate words: hello hello hello hello
 
   5. C-style comment hell: You type // This is my brilliant code idea and hit Enter, 
-     but Vim's being a smartass and auto-slaps //  on the next line. Cursor's at the 
-     start of that new line? use dw/ db, depending on where your cursor is, to delete 
-     the whole damn //  prefix (treats it as a  "word"). Now type your non-comment crap 
-     without the babysitter.
+     but Vim's being a smartass and auto-slaps //  on the next line. use S to delete 
+     the whole damn //  prefix (it deletes everything from the start of the line). 
+     Now type your non-comment crap without the babysitter.
 
 --> // This is my brilliant code idea
 --> //
