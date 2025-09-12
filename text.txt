@@ -690,6 +690,24 @@ the absolute beginning.
 
   4. From start, 2$ to end of next line.
 
+  5. Now go to the last line below, and use - to move to the start of the line above.
+
+--> Hello world.
+--> Goodbye cruel world.
+--> Hello world2.
+--> Goodbye cruel world2.
+
+  6. Then, use 2- to move 2 lines up.
+
+  7. Notice that using - repeatedly helps you move upwards along the start of the
+     start of each line, and using + repeatedly helps you move downwards along the
+     end start of each line.  However, we can simply use 0, followed by the j or k
+     keys instead of + and -.
+
+  8. Now, to move up/ down along the end of each line, first use 0 or $, followed by
+     the j or k keys.
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 7.3 SEARCHING ALONG A SINGLE LINE
