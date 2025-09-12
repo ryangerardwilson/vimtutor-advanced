@@ -721,7 +721,7 @@ T backward. Counts work: 2f o finds second 'o'. Screw up? <esc> aborts.
 
   2. Now fy to "really" y.
 
-  3. Then from there, 2f<space> to skip two spaces (watch multiples!).</space>
+  3. Then from there, 2f<space> to skip two spaces.
 
   4. From end, F e back to first e. 
 
