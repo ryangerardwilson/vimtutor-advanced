@@ -770,16 +770,93 @@ d + motion: dw deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
 --> Duplicate words: hello hello hello hello
 
   5. C-style comment hell: You type // This is my brilliant code idea and hit Enter, 
-     but Vim's being a smartass and auto-slaps //  on the next line. use S to delete 
-     the whole damn //  prefix (it deletes everything from the start of the line). 
-     Now type your non-comment crap without the babysitter.
+     but Vim's being a smartass and auto-slaps //  on the next line. use CTRL+u to delete 
+     the whole damn //  prefix (it deletes the auto-generated //, while keeping you 
+     in insert mode). Now type your non-comment crap without the babysitter.
 
 --> // This is my brilliant code idea
 --> //
 
+  6. Insert mode backspace woes? Ditch that finicky backspace key for Ctrl-h (while in
+     insert mode): Same job—deletes one character left—but it is easier to reach than 
+     the backspace key.
+
+--> Hell|o world 
+
+  7. Deleting white spaces
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.7 CHANGING TEXT
+7.7 JOINING TEXT
+
+J + motion (or just J for the next line, you lazy hack): Glues lines together, 
+smashing that newline like it insulted your mother. Capital J adds a space; gJ 
+smashes without one, because sometimes you don't want Vim playing whitespace nanny. 
+Counts work too—3J joins three lines down, you slob.
+
+  1. Cursor on end of first line. J joins it to the next, adding a space. Undo with u, 
+     because you'll fuck it up first try.
+
+The quick brown fox
+jumps over the lazy dog.
+
+    (After: The quick brown fox jumps over the lazy dog.)
+
+  2. Now on "fox", 2J slurps the next two lines into one big happy family. u to bail 
+     if it looks like ass.
+
+The quick brown
+fox jumps
+over the lazy dog.
+
+    (After: The quick brown fox jumps over the lazy dog.)
+
+  3. From start, gJ joins without the extra space—perfect for code where whitespace is 
+     for pussies. u if you chicken out.
+
+int main() {
+printf("Hello, world!\n");
+}
+
+    (After: int main() {printf("Hello, world!\n");})
+
+  4. Counts gone wild: Cursor on "Hello", 3gJ welds four lines (current plus three) into 
+     a no-space monstrosity.
+
+Duplicate lines:
+hello
+hello
+hello
+
+    (After: Duplicate lines:hellohellohello)
+
+  5. Markdown headache: You got a list item split wrong, like * Bullet point here
+     and it continues below. Park cursor on first line's end, J fixes the split—adds space 
+     so it flows like you meant it. CTRL-U in insert if you half-assed it first.
+
+* Bullet point here
+and it continues below.
+
+    (After: * Bullet point here and it continues below.)
+
+  6. Poetry gone rogue? Lines too choppy for your delicate soul. Cursor mid-line, dj 
+     (delete join—deletes to next line and joins). But J is faster, idiot—don't overcomplicate.
+
+Roses are red,
+violets are blue.
+
+    (After dj on comma: Roses are red, violets are blue.)
+
+  7. Whitespace wars: Extra blank lines pissing you off? 3J (or whatever count) collapses 
+     them, but watch for trailing spaces—trim with :%s/\s+$// if you're not a total moron.
+
+Line one
+
+Line three
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+7.8 CHANGING TEXT
 
 c + motion: cw changes word (delete to space, insert). cc whole line. c$ to end (C shortcut). 
 Note: cw stops at space, dw eats it.
@@ -798,7 +875,7 @@ Note: cw stops at space, dw eats it.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.8 THE . COMMAND
+7.9 THE . COMMAND
 
 . repeats last delete/change. Position, dot, repeat. Godsend for boilerplate hell.
 
@@ -816,26 +893,31 @@ Note: cw stops at space, dw eats it.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.9 JOINING LINES
+7.10 ADDING LINES IN NORMAL MODE
 
-J joins current to next, adds space. 3J joins three lines.
+Look, if you're in normal mode like a newbie who forgot Esc exists, you can 
+still yank and paste to duplicate a damn line without fully bailing out. yy yanks 
+the current line, p pastes it below. On a blank line? It'll shove in another empty 
+turd. Don't make a habit of this hybrid bullshit; normal mode's there for a reason.
 
-  1. Cursor on line 1, J. See joined.
+  1. Plop your cursor on a blank line in normal mode. Hit yy—bam, yanked. Then p. 
+     See the duplicate below.
 
---> Line one.
---> Line two.
---> Line three.
---> Line four.
+--> This is your original line, you slob.
+-->
+--> This is your original line, you slob. (Wait, no—blank yank pastes nothing fancy.)
+-->
 
-  2. u to undo. Now 2J from line 2.
+  2. Undo with u if it looks like ass. Now try it on a line with text: yy, p. Instant 
+     copy-paste hack.
 
-  3. Check the space added—clean, not sloppy.
+  3. Check the indent—Vim's not stupid, it pastes clean. No extra spaces unless you're drunk.
 
-  4. Try 3J on fresh lines if you have 'em.
+  4. Abuse this on fresh lines till you get bored, then Esc out and use o like a grown-up.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.10 REPLACING CHARACTERS
+7.11 REPLACING CHARACTERS
 
 r x replaces under cursor with x. 4r a replaces four with 'a'. Careful: 4rx four 
 x's; r4x puts '4' then dx (x as motion, idiot).
@@ -852,7 +934,7 @@ x's; r4x puts '4' then dx (x as motion, idiot).
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.11 CHANGING CASE
+7.12 CHANGING CASE
 
 ~ toggles case under cursor. 3~ three chars.
 
@@ -870,7 +952,7 @@ x's; r4x puts '4' then dx (x as motion, idiot).
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.12 KEYBOARD MACROS
+7.13 KEYBOARD MACROS
 
 The . command repeats the preceding change. But what if you want to do something 
 more complex than a single change? That's where the keyboard macros come in. The 
@@ -899,7 +981,7 @@ by a count, which will cause the macro to be executed that number of times.)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.13 VISUAL BLOCK MODE
+7.14 VISUAL BLOCK MODE
 
 Oh, for fuck's sake, if you're still editing line by line like some Emacs weenie 
 afraid of commitment, Visual Block Mode is your chainsaw for columnar carnage. 
@@ -933,7 +1015,7 @@ machine. Or keep fumbling—your code will thank you by crashing harder.
      Chaos ensues—embrace it.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.14 SHIFT COMMANDS
+7.15 SHIFT COMMANDS
 
 The Vim editor has lots of commands that help the programmer indent his program 
 correctly—because apparently you can't use spaces like a civilized human without help. 
@@ -967,7 +1049,7 @@ rectangle like it should.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.15 THE = COMMAND
+7.16 THE = COMMAND
 
 The =motion command indents the selected text using Vim’s internal formatting 
 program—because who has time for manual tab wars? If you want to indent a block 
@@ -1018,23 +1100,28 @@ guesses smartly.
 
   6. d motion: dw word, d3w three, d$/D end. Counts flexible.
 
-  7. c motion: cw word, cc line, c$/C end. cw nuance: to space.
+  7. J join next line (adds space, you idiot—gJ skips it for code purists); 
+     count joins multiples, like 3J to mash a pile of crap into one line without the 
+     drama.
 
-  8. . repeats last d/c. Position and dot.
+  8. c motion: cw word, cc line, c$/C end. cw nuance: to space.
 
-  9. J join (count multiples).
+  9. . repeats last d/c. Position and dot.
 
- 10. r x replace (count multiples). Order matters.
+ 10. Add lines in normal mode: Cursor on the line, hit yy to yank it, p to slap a 
+     duplicate below.
 
- 11. ~ case toggle (count range).
+ 11. r x replace (count multiples). Order matters.
 
- 12. q a record macro a, q stop; @a play (n@a for count).
+ 12. ~ case toggle (count range).
 
- 13. Ctrl-V block mode; select with hjkl, d/y/c/I/A ops; <Esc> out. Counts for size.
+ 13. q a record macro a, q stop; @a play (n@a for count).
 
- 14. >> right shift, << left (per line or count); :set shiftwidth=4; Visual Block too.
+ 14. Ctrl-V block mode; select with hjkl, d/y/c/I/A ops; <Esc> out. Counts for size.
 
- 15. =motion auto-indents (=% for {} block, V= for selection).
+ 15. >> right shift, << left (per line or count); :set shiftwidth=4; Visual Block too.
+
+ 16. =motion auto-indents (=% for {} block, V= for selection).
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
