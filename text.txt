@@ -828,7 +828,7 @@ over the lazy dog.
 
     (After: The quick brown fox jumps over the lazy dog.)
 
-  3. From start, gJ joins without the extra space—perfect for code where whitespace is 
+  3. From start, 3gJ joins without the extra space—perfect for code where whitespace is 
      for pussies. u if you chicken out.
 
 int main() {
@@ -837,7 +837,7 @@ printf("Hello, world!\n");
 
     (After: int main() {printf("Hello, world!\n");})
 
-  4. Counts gone wild: Cursor on "Hello", 3gJ welds four lines (current plus three) into 
+  4. Counts gone wild: Cursor on "Hello", 4gJ welds four lines (current plus three) into 
      a no-space monstrosity.
 
 Duplicate lines:
@@ -847,25 +847,8 @@ hello
 
     (After: Duplicate lines:hellohellohello)
 
-  5. Markdown headache: You got a list item split wrong, like * Bullet point here
-     and it continues below. Park cursor on first line's end, J fixes the split—adds space 
-     so it flows like you meant it. CTRL-U in insert if you half-assed it first.
-
-* Bullet point here
-and it continues below.
-
-    (After: * Bullet point here and it continues below.)
-
-  6. Poetry gone rogue? Lines too choppy for your delicate soul. Cursor mid-line, dj 
-     (delete join—deletes to next line and joins). But J is faster, idiot—don't overcomplicate.
-
-Roses are red,
-violets are blue.
-
-    (After dj on comma: Roses are red, violets are blue.)
-
-  7. Whitespace wars: Extra blank lines pissing you off? 3J (or whatever count) collapses 
-     them, but watch for trailing spaces—trim with :%s/\s+$// if you're not a total moron.
+  5. Whitespace wars: Extra blank lines pissing you off? 3J (or whatever count) collapses 
+     them
 
 Line one
 
