@@ -781,7 +781,8 @@ d + motion: dw deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
 
   2. Now on "brown", d3w deletes "brown fox jumps". u to undo.
 
-  3. From start, D deletes to end. u.
+  3. From start, D or d$ deletes to end. However, there is no capitalized shortcut
+     for d^ and d0 to delete backwards to the beginning.
 
   4. Two counts: Cursor on word, 2d2w deletes two words, twice (four total).
 
@@ -792,16 +793,14 @@ d + motion: dw deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
      the whole damn //  prefix (it deletes the auto-generated //, while keeping you 
      in insert mode). Now type your non-comment crap without the babysitter.
 
---> // This is my brilliant code idea
---> //
+                // This is my brilliant code idea
+                //
 
   6. Insert mode backspace woes? Ditch that finicky backspace key for Ctrl-h (while in
      insert mode): Same job—deletes one character left—but it is easier to reach than 
      the backspace key.
 
 --> Hell|o world 
-
-  7. Deleting white spaces
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
