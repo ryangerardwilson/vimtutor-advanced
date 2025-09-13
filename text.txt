@@ -819,7 +819,7 @@ jumps over the lazy dog.
 
     (After: The quick brown fox jumps over the lazy dog.)
 
-  2. Now on "fox", 2J slurps the next two lines into one big happy family. u to bail 
+  2. Now on "The", 3J slurps the next two lines into one big happy family. u to bail 
      if it looks like ass.
 
 The quick brown
