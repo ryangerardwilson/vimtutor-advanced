@@ -661,7 +661,7 @@ the current or previous word.
 
   1. Start at the beginning of this line. 
 
---> The quick brown fox jumps over the lazy dog. T
+--> The quick brown fox jumps over the lazy dog. 
 
   2. Type 3w to skip three words. 
 
@@ -773,22 +773,27 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.</c-d>
 
 7.6 DELETING TEXT
 
-d + motion: dw deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
+x deletes a character in normal mode. 3x deletes 3 characters.  d + motion: dw deletes 
+word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
 
-  1. Cursor on "quick". dw deletes "quick". Undo with u.
+  1. Cursor on "xabquick". 3x detles 3 characters.
+
+--> The xabquick brown fox jumps over the lazy dog.
+
+  2. Cursor on "quick". dw deletes "quick". Undo with u.
 
 --> The quick brown fox jumps over the lazy dog.
 
-  2. Now on "brown", d3w deletes "brown fox jumps". u to undo.
+  3. Now on "brown", d3w deletes "brown fox jumps". u to undo.
 
-  3. From start, D or d$ deletes to end. However, there is no capitalized shortcut
+  4. From start, D or d$ deletes to end. However, there is no capitalized shortcut
      for d^ and d0 to delete backwards to the beginning.
 
-  4. Two counts: Cursor on word, 2d2w deletes two words, twice (four total).
+  5. Two counts: Cursor on word, 2d2w deletes two words, twice (four total).
 
 --> Duplicate words: hello hello hello hello
 
-  5. C-style comment hell: You type // This is my brilliant code idea and hit Enter, 
+  6. C-style comment hell: You type // This is my brilliant code idea and hit Enter, 
      but Vim's being a smartass and auto-slaps //  on the next line. use CTRL+u to delete 
      the whole damn //  prefix (it deletes the auto-generated //, while keeping you 
      in insert mode). Now type your non-comment crap without the babysitter.
@@ -796,7 +801,7 @@ d + motion: dw deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
                 // This is my brilliant code idea
                 //
 
-  6. Insert mode backspace woes? Ditch that finicky backspace key for Ctrl-h (while in
+  7. Insert mode backspace woes? Ditch that finicky backspace key for Ctrl-h (while in
      insert mode): Same job—deletes one character left—but it is easier to reach than 
      the backspace key.
 
@@ -863,13 +868,13 @@ Note: cw stops at space, dw eats it.
 
   1. On "fox", cw, type "cat", <esc>. See: The quick brown cat jumps...
 
---> The quick brown fox jumps over the lazy dog.</esc>
+--> The quick brown fox jumps over the lazy dog.
 
-  2. u to undo. cc on a line, type new text, <esc>.
+  2. u to undo. cc on a line, type new text.
 
---> Old text here.</esc>
+    Old text here.
 
-  3. From mid-line, C, type new end, <esc>.</esc>
+  3. From mid-line, C, type new end.
 
   4. Try cw again on "lazy"—note it stops at space, not like dw.
 
@@ -924,13 +929,11 @@ x's; r4x puts '4' then dx (x as motion, idiot).
 
   1. On 'z', r s (one zzz becomes szz).
 
---> The lazy dog has zzz's.
+    xxx lazy dog has zzz's.
 
-  2. u undo. ^ to start, 5r a: aaaaa lazy...
+  2. u undo. ^ to start
 
-  3. Try 3r x on a clump—replaces three with x.
-
-  4. Now r5x—see? Puts '5', then x motions (deletes char). Don't be that guy.
+  3. Try 3r y on the first 'x' —replaces xxx with yyy.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -944,7 +947,7 @@ x's; r4x puts '4' then dx (x as motion, idiot).
 
   2. ~ once more on same spot: HELlo (toggles back).
 
-  3. Full line: Position start, put line in CAPS if needed, 10~ or whatever.
+  3. Full line: Position start, put line in CAPS if needed, 30~ or whatever.
 
 --> all caps rant here.
 
@@ -963,10 +966,10 @@ by a count, which will cause the macro to be executed that number of times.)
 
   1. You have a list of filenames like this. Move to the first character of the first line.
 
---> stdio.h
---> fcntl.h
---> unistd.h
---> stdlib.h
+stdio.h
+fcntl.h
+unistd.h
+stdlib.h
 
   2. Execute: qa to start recording in register a.
 
@@ -976,7 +979,7 @@ by a count, which will cause the macro to be executed that number of times.)
 
   5. j to next line, q to stop recording.
 
-  6. Now @a to play on next line. Or 3@a for the rest—bam, #include magic.
+  6. Now @a to play on next line. Or 2@a for the rest—bam, #include magic.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -996,23 +999,21 @@ machine. Or keep fumbling—your code will thank you by crashing harder.
      three times (right three chars). See the block glow?
 
 --> Line1: abc def ghi
---> Line2:  xyz jkl mno
+--> Line2: xyz jkl mno
 --> Line3: pqr stu vwx
 
   2. With block selected, d to delete it. u to undo.
 
-  3. Again: Ctrl-V select same block, c, type "FOO", <esc>, <esc>. Fills the block.</esc></esc>
+  3. Again: Ctrl-V select same block, c, type "FOO", <esc>, <esc>. Fills the block.
   
   4. Now I for insert before: Select block on "abc", I"BAR ", <esc>, <esc>—pads and inserts 
      left of block.
 
---> Same lines as above.</esc></esc>
+--> Same lines as above.
 
   5. A for append after: Select on "ghi", A" ZAP", <esc>, <esc>—adds right, pads shorter 
-     lines.</esc></esc>
+     lines.
 
-  6. Fancy: 5Ctrl-V l l to select five lines, two chars wide. y to yank, p to paste elsewhere. 
-     Chaos ensues—embrace it.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 7.15 SHIFT COMMANDS
@@ -1032,20 +1033,21 @@ rectangle like it should.
 
   1. Cursor on an unindented line. Type >> to shift right (default 8 spaces—ugly, huh?).
 
---> if (condition) {
+if (condition) {
 
   2. u undo. :set shiftwidth=4, then >> again—nicer, 4 spaces.
 
   3. 2>> to shift current and next line right.
 
---> if (condition) {
--->     do_something();
+if (condition) {
+    do_something();
 
   4. In Visual Block: Ctrl-V, j (down one), >> to shift both lines' block right. u undo.
+     Then keep using . to futher indent, and u to unindent.
 
---> Misaligned crap:
---> foo = bar;
---> baz = quux;
+Misaligned crap:
+foo = bar;
+baz = quux;
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1070,8 +1072,6 @@ guesses smartly.
 
   3. =3j to indent current and next two lines. Likewise, = 3k would do the current
      and previous two lines.
-
-  4. In block: Ctrl-V select inner block, =—fixes columnar indents too, you slob.
 
 
 
