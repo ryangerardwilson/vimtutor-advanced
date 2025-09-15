@@ -650,28 +650,8 @@ Note: This avoids typing  i , the last character, the text to insert, <ESC>,
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-             Lesson 7.1: FAST EDITING
-
-7.1 WORD MOVEMENT
-
-Words are your battlefield. w leaps forward to the start of the next word (Vim 
-counts punctuation as words too, deal with it). b bounces back to the start of 
-the current or previous word.
-
-  1. Start at the beginning of this line. 
-
---> The quick brown fox jumps over the lazy dog. 
-
-  2. Type 3w to skip three words. 
-
-  3. Then 2b to back up two.
-
-  4. Position cursor on "fox". Type 4w to end up after "lazy". Then 3b back to "jumps".
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-7.2 MOVING TO THE START OR END OF A LINE
+            
+             Lesson 7.1: MOVING TO THE START OR END OF A LINE
 
 $ catapults to the end of the line. <End> key does the same if you're not a purist. 
 ^ rockets to the first non-blank character—ignores leading spaces. 0 or <Home> nails 
@@ -710,7 +690,7 @@ the absolute beginning.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.3 SEARCHING ALONG A SINGLE LINE
+            7.2 SEARCHING ALONG A SINGLE LINE
 
 f x hunts forward for character x—lands on it. F backward. t x stops one before x. 
 T backward. Counts work: 2f o finds second 'o'. Screw up? <esc> aborts.
@@ -729,7 +709,7 @@ T backward. Counts work: 2f o finds second 'o'. Screw up? <esc> aborts.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.4 MOVING TO A SPECIFIC LINE
+            7.3 MOVING TO A SPECIFIC LINE
 
 G with number: 5G to line 5. No number? Bottom of file. Beats your idiotic gg or 
 9999k nonsense.
@@ -750,7 +730,7 @@ G with number: 5G to line 5. No number? Bottom of file. Beats your idiotic gg or
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.5 SCROLLING UP AND DOWN
+            7.4 SCROLLING UP AND DOWN
 
 <c-u> scrolls half-screen up (text moves down). <c-d> half-screen down. Smooth 
 sailing, no jarring jumps.</c-d></c-u>
@@ -771,7 +751,7 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.</c-d>
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.6 DELETING TEXT
+            7.5 DELETING TEXT
 
 x deletes a character in normal mode. 3x deletes 3 characters.  d + motion: dw deletes 
 word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
@@ -809,7 +789,7 @@ word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.7 JOINING TEXT
+            7.6 JOINING TEXT
 
 J + motion (or just J for the next line, you lazy hack): Glues lines together, 
 smashing that newline like it insulted your mother. Capital J adds a space; gJ 
@@ -861,7 +841,7 @@ Line three
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.8 CHANGING TEXT
+            7.7 CHANGING TEXT
 
 c + motion: cw changes word (delete to space, insert). cc whole line. c$ to end (C shortcut). 
 Note: cw stops at space, dw eats it.
@@ -880,7 +860,7 @@ Note: cw stops at space, dw eats it.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.9 THE . COMMAND
+            7.8 THE . COMMAND
 
 . repeats last delete/change. Position, dot, repeat. Godsend for boilerplate hell.
 
@@ -898,7 +878,7 @@ Note: cw stops at space, dw eats it.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.10 ADDING LINES IN NORMAL MODE
+            7.9 ADDING LINES IN NORMAL MODE
 
 Look, if you're in normal mode like a newbie who forgot Esc exists, you can 
 still yank and paste to duplicate a damn line without fully bailing out. yy yanks 
@@ -922,7 +902,7 @@ turd. Don't make a habit of this hybrid bullshit; normal mode's there for a reas
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.11 REPLACING CHARACTERS
+            7.10 REPLACING CHARACTERS
 
 r x replaces under cursor with x. 4r a replaces four with 'a'. Careful: 4rx four 
 x's; r4x puts '4' then dx (x as motion, idiot).
@@ -937,7 +917,7 @@ x's; r4x puts '4' then dx (x as motion, idiot).
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.12 CHANGING CASE
+            7.11 CHANGING CASE
 
 ~ toggles case under cursor. 3~ three chars.
 
@@ -955,7 +935,7 @@ x's; r4x puts '4' then dx (x as motion, idiot).
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.13 KEYBOARD MACROS
+            7.12 KEYBOARD MACROS
 
 The . command repeats the preceding change. But what if you want to do something 
 more complex than a single change? That's where the keyboard macros come in. The 
@@ -984,7 +964,7 @@ stdlib.h
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.14 VISUAL BLOCK MODE
+            7.13 VISUAL BLOCK MODE
 
 Oh, for fuck's sake, if you're still editing line by line like some Emacs weenie 
 afraid of commitment, Visual Block Mode is your chainsaw for columnar carnage. 
@@ -1016,7 +996,7 @@ machine. Or keep fumbling—your code will thank you by crashing harder.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.15 SHIFT COMMANDS
+            7.14 SHIFT COMMANDS
 
 The Vim editor has lots of commands that help the programmer indent his program 
 correctly—because apparently you can't use spaces like a civilized human without help. 
@@ -1051,7 +1031,7 @@ baz = quux;
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-7.16 THE = COMMAND
+            7.15 THE = COMMAND
 
 The =motion command indents the selected text using Vim’s internal formatting 
 program—because who has time for manual tab wars? If you want to indent a block 
@@ -1088,40 +1068,38 @@ guesses smartly.
                    LESSON 7 SUMMARY
 
 
-  1. w forward word, b backward. Prefix: 4w, 3b.
+  1. $ end (<End>), ^ first non-blank, 0/<Home> start. Counts for $.
 
-  2. $ end (<End>), ^ first non-blank, 0/<Home> start. Counts for $.
+  2. f x forward to x, F back; t x before, T before back. <Esc> abort.
 
-  3. f x forward to x, F back; t x before, T before back. <Esc> abort.
+  3. nG line n, G end.
 
-  4. nG line n, G end.
+  4. <C-U> half up, <C-D> half down.
 
-  5. <C-U> half up, <C-D> half down.
+  5. d motion: dw word, d3w three, d$/D end. Counts flexible.
 
-  6. d motion: dw word, d3w three, d$/D end. Counts flexible.
-
-  7. J join next line (adds space, you idiot—gJ skips it for code purists); 
+  6. J join next line (adds space, you idiot—gJ skips it for code purists); 
      count joins multiples, like 3J to mash a pile of crap into one line without the 
      drama.
 
-  8. c motion: cw word, cc line, c$/C end. cw nuance: to space.
+  7. c motion: cw word, cc line, c$/C end. cw nuance: to space.
 
-  9. . repeats last d/c. Position and dot.
+  8. . repeats last d/c. Position and dot.
 
- 10. Add lines in normal mode: Cursor on the line, hit yy to yank it, p to slap a 
+  9. Add lines in normal mode: Cursor on the line, hit yy to yank it, p to slap a 
      duplicate below.
 
- 11. r x replace (count multiples). Order matters.
+ 10. r x replace (count multiples). Order matters.
 
- 12. ~ case toggle (count range).
+ 11. ~ case toggle (count range).
 
- 13. q a record macro a, q stop; @a play (n@a for count).
+ 12. q a record macro a, q stop; @a play (n@a for count).
 
- 14. Ctrl-V block mode; select with hjkl, d/y/c/I/A ops; <Esc> out. Counts for size.
+ 13. Ctrl-V block mode; select with hjkl, d/y/c/I/A ops; <Esc> out. Counts for size.
 
- 15. >> right shift, << left (per line or count); :set shiftwidth=4; Visual Block too.
+ 14. >> right shift, << left (per line or count); :set shiftwidth=4; Visual Block too.
 
- 16. =motion auto-indents (=% for {} block, V= for selection).
+ 15. =motion auto-indents (=% for {} block, V= for selection).
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
