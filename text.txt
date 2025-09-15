@@ -716,7 +716,7 @@ G with number: 5G to line 5. No number? Bottom of file. Beats your idiotic gg or
 
   1. Type :set number to see lines (or not, whatever).
 
-  2. Then 741G top.
+  2. Then 721G top.
 
 --> Line 1: Foo bar baz
 --> Line 2: Quux quuux
@@ -724,7 +724,7 @@ G with number: 5G to line 5. No number? Bottom of file. Beats your idiotic gg or
 --> Line 4: World peace
 --> Line 5: End of story
 
-  3. 743G line 3.
+  3. 723G line 3.
 
   4. G bottom of the page. Now :set nonumber if you hate numbers.
 
