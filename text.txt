@@ -746,7 +746,7 @@ consequat.
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</c-d>
 
-  2. Up with <c-u>.</c-u>
+  2. Up with <c-u>.
 
   3. Repeat to feel the flow—don't fight it, you stubborn mule.
 
@@ -770,11 +770,14 @@ deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
   4. From start, D or d$ deletes to end. However, there is no capitalized
   shortcut for d^ and d0 to delete backwards to the beginning.
 
-  5. Two counts: Cursor on word, 2d2w deletes two words, twice (four total).
+  5. Now, from the middle of the line, use C to delete to the end and stay in
+  insert mode.
+
+  6. Two counts: Cursor on word, 2d2w deletes two words, twice (four total).
 
 --> Duplicate words: hello hello hello hello
 
-  6. C-style comment hell: You type // This is my brilliant code idea and hit
+  7. C-style comment hell: You type // This is my brilliant code idea and hit
   Enter, but Vim's being a smartass and auto-slaps //  on the next line. use
   CTRL+u to delete the whole damn //  prefix (it deletes the auto-generated //,
   while keeping you in insert mode). Now type your non-comment crap without the
@@ -783,15 +786,16 @@ deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
                 // This is my brilliant code idea
                 //
 
-  7. Insert mode backspace woes? Ditch that finicky backspace key for Ctrl-h
+  8. Insert mode backspace woes? Ditch that finicky backspace key for Ctrl-h
   (while in insert mode): Same job—deletes one character left—but it is easier
   to reach than the backspace key.
 
 --> hell|o world huhuh
 
-  8. in insert mode, use delete to forward delete. too bad, vim's default
-  config maps the natural delete key alternative, ctrl + d, to deindent a line.
-  Now, place the cursor on l, and hit delete.
+  9. in insert mode, place the cursor on the second l below, then use delete to
+  forward delete. too bad, vim's default config maps the natural delete key
+  alternative, ctrl + d, to deindent a line.  Now, place the cursor on l, and
+  hit delete.
 
 --> hell|o world 
 
@@ -920,11 +924,11 @@ there for a reason.
 r x replaces under cursor with x. 4r a replaces four with 'a'. Careful: 4rx
 four x's; r4x puts '4' then dx (x as motion, idiot).
 
-  1. On 'z', r s (one zzz becomes szz).
+  1. On 'x', r s (one xxx becomes sxx).
 
     xxx lazy dog has toys.
 
-  2. u undo. ^ to start
+  2. u undo. 
 
   3. Try 3r y on the first 'x' —replaces xxx with yyy.
 
@@ -944,13 +948,14 @@ four x's; r4x puts '4' then dx (x as motion, idiot).
 
 --> HELLO WORLD
 
-  2. ~ once more on same spot: HELlo (toggles back).
+  2. ~ once more on same spot: 
+
+--> H
 
   3. Full line: Position start, put line in CAPS if needed, 30~ or whatever.
 
 --> all caps rant here.
 
-  4. u undo. Counts flip sequentially—get precise or ragequit.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1006,10 +1011,10 @@ will thank you by crashing harder.
 
   2. With block selected, d to delete it. u to undo.
 
-  3. Again: Ctrl-V select same block, c, type "FOO", <esc>, <esc>. Fills the
+  3. Again: Ctrl-V select same block, c, type "FOO", <esc>. Fills the
   block.
   
-  4. Now I for insert before: Select block on "abc", I"BAR ", <esc>, <esc>—pads and inserts 
+  4. Now I for insert before: Select block on "abc", I"BAR ", <esc>—pads and inserts 
      left of block.
 
 --> Same lines as above.
@@ -1139,6 +1144,8 @@ but stick to insert for the real magic.
   print*, printf, etc. Ctrl-N to next, Ctrl-P previous. Enter or Tab to insert,
   or Ctrl-Y to confirm without the fluff. And, use Ctrl+E to exit the dropdown,
   in the event you do not like any of the options presented.
+
+--> prin
 
   2. u undo if it guessed wrong (it won't). Now try Ctrl-X Ctrl-F after
   suggests files in your pwd. Let's say you have some method called open(), now
