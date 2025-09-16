@@ -2,30 +2,31 @@
 =    W e l c o m e   t o   t h e   V I M   T u t o r  ADVANCED                =
 ===============================================================================
 
-    This is an opinionated variant of Vim Tutor cooked up by Ryan Gerard Wilson 
-    (check ryangerardwilson.com if you want the full story), zeroing in on 
-    the workflows he swears by—the ones that actually save your ass when you're 
-    knee-deep in code without turning into a mouse-clicking zombie. We've 
-    jammed in advanced features the basic tutor ignores, like macros, visual 
-    blocks, and indent voodoo, because why pretend editing is just 
-    "hjkl and pray"?
+    This is an opinionated variant of Vim Tutor cooked up by Ryan Gerard Wilson
+    (check ryangerardwilson.com if you want the full story), zeroing in on the
+    workflows he swears by—the ones that actually save your ass when you're
+    knee-deep in code without turning into a mouse-clicking zombie. We've
+    jammed in advanced features the basic tutor ignores, like macros, visual
+    blocks, and indent voodoo, because why pretend editing is just "hjkl and
+    pray"?
 
-    Lessons 1 to 6 are straight from the original vimtutor version 1.5—solid basics, 
-    no arguments there—but lesson 7 is where the juice is. That's where we crank it 
-    up and teach you to actually bend Vim to your will instead of just poking it 
-    like a scared kitten.
+    Lessons 1 to 6 are straight from the original vimtutor version 1.5—solid
+    basics, no arguments there—but lesson 7 is where the juice is. That's where
+    we crank it up and teach you to actually bend Vim to your will instead of
+    just poking it like a scared kitten.
 
-    It'll take you 25-30 minutes if you're not a complete space cadet, but factor 
-    in extra if you insist on experimenting instead of just doing what it says. 
-    Hell, experimentation is half the fun—Vim rewards the bold, punishes the lazy.
+    It'll take you 25-30 minutes if you're not a complete space cadet, but
+    factor in extra if you insist on experimenting instead of just doing what
+    it says.  Hell, experimentation is half the fun—Vim rewards the bold,
+    punishes the lazy.
 
-    These lessons will butcher the text, so make a copy of this file to screw 
-    around with (if you fired up vimtutor, it's already cloned—thank me later). 
-    Listen, this ain't a bedtime story; it's hands-on boot camp. Type the commands, 
-    feel the pain, or you'll forget 'em faster than a kernel panic log. Reading 
-    alone? That's for wimps who think Ctrl+Z is "undo" magic.
+    These lessons will butcher the text, so make a copy of this file to screw
+    around with (if you fired up vimtutor, it's already cloned—thank me later).
+    Listen, this ain't a bedtime story; it's hands-on boot camp. Type the
+    commands, feel the pain, or you'll forget 'em faster than a kernel panic
+    log. Reading alone? That's for wimps who think Ctrl+Z is "undo" magic.
 
-    Alright, caps lock off, you caveman—hit j enough times to scroll Lesson 1.1 
+    Alright, caps lock off, you caveman—hit j enough times to scroll Lesson 1.1
     into view. Let's make you dangerous.
 
 
@@ -79,8 +80,7 @@ Note: The cursor keys should also work.  But using hjkl you will be able to
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		     Lesson 1.3: TEXT EDITING - DELETION
 
-
-** While in Normal mode press	x  to delete the character under the cursor. **
+While in Normal mode press	x  to delete the character under the cursor.
 
   1. Move the cursor to the line below marked --->.
 
@@ -102,8 +102,7 @@ NOTE: As you go through this tutor, do not try to memorize, learn by usage.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		     Lesson 1.4: TEXT EDITING - INSERTION
 
-
-	 ** While in Normal mode press  i  to insert text. **
+While in Normal mode press  i  to insert text. 
 
   1. Move the cursor to the first line below marked --->.
 
@@ -653,9 +652,9 @@ Note: This avoids typing  i , the last character, the text to insert, <ESC>,
             
              Lesson 7.1: MOVING TO THE START OR END OF A LINE
 
-$ catapults to the end of the line. <End> key does the same if you're not a purist. 
-^ rockets to the first non-blank character—ignores leading spaces. 0 or <Home> nails 
-the absolute beginning.
+$ catapults to the end of the line. <End> key does the same if you're not a
+purist.  ^ rockets to the first non-blank character—ignores leading spaces. 0
+or <Home> nails the absolute beginning.
 
   1. Cursor on "the" in the line below. Type $ to end.
 
@@ -670,7 +669,8 @@ the absolute beginning.
 
   4. From start, 2$ to end of next line.
 
-  5. Now go to the last line below, and use - to move to the start of the line above.
+  5. Now go to the last line below, and use - to move to the start of the line
+  above.
 
 --> Hello world.
 --> Goodbye cruel world.
@@ -679,21 +679,21 @@ the absolute beginning.
 
   6. Then, use 2- to move 2 lines up.
 
-  7. Notice that using - repeatedly helps you move upwards along the start of the
-     start of each line, and using + repeatedly helps you move downwards along the
-     end start of each line.  However, we can simply use 0, followed by the j or k
-     keys instead of + and -.
+  7. Notice that using - repeatedly helps you move upwards along the start of
+  the start of each line, and using + repeatedly helps you move downwards along
+  the end start of each line.  However, we can simply use 0, followed by the j
+  or k keys instead of + and -.
 
-  8. Now, to move up/ down along the end of each line, first use 0 or $, followed by
-     the j or k keys.
+  8. Now, to move up/ down along the end of each line, first use 0 or $,
+  followed by the j or k keys.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
             7.2 SEARCHING ALONG A SINGLE LINE
 
-f x hunts forward for character x—lands on it. F backward. t x stops one before x. 
-T backward. Counts work: 2f o finds second 'o'. Screw up? <esc> aborts.
+f x hunts forward for character x—lands on it. F backward. t x stops one before
+x.  T backward. Counts work: 2f o finds second 'o'. Screw up? <esc> aborts.
 
   1. Start at beginning. fh to "human" h.
 
@@ -711,8 +711,8 @@ T backward. Counts work: 2f o finds second 'o'. Screw up? <esc> aborts.
 
             7.3 MOVING TO A SPECIFIC LINE
 
-G with number: 5G to line 5. No number? Bottom of file. Beats your idiotic gg or 
-9999k nonsense.
+G with number: 5G to line 5. No number? Bottom of file. Beats your idiotic gg
+or 9999k nonsense.
 
   1. Type :set number to see lines (or not, whatever).
 
@@ -732,18 +732,19 @@ G with number: 5G to line 5. No number? Bottom of file. Beats your idiotic gg or
 
             7.4 SCROLLING UP AND DOWN
 
-<c-u> scrolls half-screen up (text moves down). <c-d> half-screen down. Smooth 
+<c-u> scrolls half-screen up (text moves down). <c-d> half-screen down. Smooth
 sailing, no jarring jumps.</c-d></c-u>
 
   1. Scroll down with <c-d> twice.
 
---> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+--> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat.
 
---> More filler: Duis aute irure dolor in reprehenderit in voluptate velit esse 
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-sunt in culpa qui officia deserunt mollit anim id est laborum.</c-d>
+--> More filler: Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</c-d>
 
   2. Up with <c-u>.</c-u>
 
@@ -753,8 +754,8 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.</c-d>
 
             7.5 DELETING TEXT
 
-x deletes a character in normal mode. 3x deletes 3 characters.  d + motion: dw deletes 
-word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
+x deletes a character in normal mode. 3x deletes 3 characters.  d + motion: dw
+deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
 
   1. Cursor on "xabquick". 3x detles 3 characters.
 
@@ -766,46 +767,54 @@ word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
 
   3. Now on "brown", d3w deletes "brown fox jumps". u to undo.
 
-  4. From start, D or d$ deletes to end. However, there is no capitalized shortcut
-     for d^ and d0 to delete backwards to the beginning.
+  4. From start, D or d$ deletes to end. However, there is no capitalized
+  shortcut for d^ and d0 to delete backwards to the beginning.
 
   5. Two counts: Cursor on word, 2d2w deletes two words, twice (four total).
 
 --> Duplicate words: hello hello hello hello
 
-  6. C-style comment hell: You type // This is my brilliant code idea and hit Enter, 
-     but Vim's being a smartass and auto-slaps //  on the next line. use CTRL+u to delete 
-     the whole damn //  prefix (it deletes the auto-generated //, while keeping you 
-     in insert mode). Now type your non-comment crap without the babysitter.
+  6. C-style comment hell: You type // This is my brilliant code idea and hit
+  Enter, but Vim's being a smartass and auto-slaps //  on the next line. use
+  CTRL+u to delete the whole damn //  prefix (it deletes the auto-generated //,
+  while keeping you in insert mode). Now type your non-comment crap without the
+  babysitter.
 
                 // This is my brilliant code idea
                 //
 
-  7. Insert mode backspace woes? Ditch that finicky backspace key for Ctrl-h (while in
-     insert mode): Same job—deletes one character left—but it is easier to reach than 
-     the backspace key.
+  7. Insert mode backspace woes? Ditch that finicky backspace key for Ctrl-h
+  (while in insert mode): Same job—deletes one character left—but it is easier
+  to reach than the backspace key.
 
---> Hell|o world 
+--> hell|o world huhuh
+
+  8. in insert mode, use delete to forward delete. too bad, vim's default
+  config maps the natural delete key alternative, ctrl + d, to deindent a line.
+  Now, place the cursor on l, and hit delete.
+
+--> hell|o world 
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
             7.6 JOINING TEXT
 
-J + motion (or just J for the next line, you lazy hack): Glues lines together, 
-smashing that newline like it insulted your mother. Capital J adds a space; gJ 
-smashes without one, because sometimes you don't want Vim playing whitespace nanny. 
-Counts work too—3J joins three lines down, you slob.
+J + motion (or just J for the next line, you lazy hack): Glues lines together,
+smashing that newline like it insulted your mother. Capital J adds a space; gJ
+smashes without one, because sometimes you don't want Vim playing whitespace
+nanny.  Counts work too—3J joins three lines down, you slob.
 
-  1. Cursor on end of first line. J joins it to the next, adding a space. Undo with u, 
-     because you'll fuck it up first try.
+  1. Cursor on end of first line. J joins it to the next, adding a space. Undo
+  with u, because you'll fuck it up first try.
 
 The quick brown fox
 jumps over the lazy dog.
 
     (After: The quick brown fox jumps over the lazy dog.)
 
-  2. Now on "The", 3J slurps the next two lines into one big happy family. u to bail 
-     if it looks like ass.
+  2. Now on "The", 3J slurps the next two lines into one big happy family. u to
+  bail if it looks like ass.
 
 The quick brown
 fox jumps
@@ -813,8 +822,8 @@ over the lazy dog.
 
     (After: The quick brown fox jumps over the lazy dog.)
 
-  3. From start, 3gJ joins without the extra space—perfect for code where whitespace is 
-     for pussies. u if you chicken out.
+  3. From start, 3gJ joins without the extra space—perfect for code where
+  whitespace is for pussies. u if you chicken out.
 
 int main() {
 printf("Hello, world!\n");
@@ -822,8 +831,8 @@ printf("Hello, world!\n");
 
     (After: int main() {printf("Hello, world!\n");})
 
-  4. Counts gone wild: Cursor on "Hello", 4gJ welds four lines (current plus three) into 
-     a no-space monstrosity.
+  4. Counts gone wild: Cursor on "Hello", 4gJ welds four lines (current plus
+  three) into a no-space monstrosity.
 
 Duplicate lines:
 hello
@@ -832,8 +841,8 @@ hello
 
     (After: Duplicate lines:hellohellohello)
 
-  5. Whitespace wars: Extra blank lines pissing you off? 3J (or whatever count) collapses 
-     them
+  5. Whitespace wars: Extra blank lines pissing you off? 3J (or whatever count)
+  collapses them
 
 Line one
 
@@ -843,8 +852,8 @@ Line three
 
             7.7 CHANGING TEXT
 
-c + motion: cw changes word (delete to space, insert). cc whole line. c$ to end (C shortcut). 
-Note: cw stops at space, dw eats it.
+c + motion: cw changes word (delete to space, insert). cc whole line. c$ to end
+(C shortcut).  Note: cw stops at space, dw eats it.
 
   1. On "fox", cw, type "cat", <esc>. See: The quick brown cat jumps...
 
@@ -862,7 +871,8 @@ Note: cw stops at space, dw eats it.
 
             7.8 THE . COMMAND
 
-. repeats last delete/change. Position, dot, repeat. Godsend for boilerplate hell.
+. repeats last delete/change. Position, dot, repeat. Godsend for boilerplate
+hell.
 
   1. On first <B>, df> deletes to > (<B> gone).
 
@@ -880,32 +890,35 @@ Note: cw stops at space, dw eats it.
 
             7.9 ADDING LINES IN NORMAL MODE
 
-Look, if you're in normal mode like a newbie who forgot Esc exists, you can 
-still yank and paste to duplicate a damn line without fully bailing out. yy yanks 
-the current line, p pastes it below. On a blank line? It'll shove in another empty 
-turd. Don't make a habit of this hybrid bullshit; normal mode's there for a reason.
+Look, if you're in normal mode like a newbie who forgot Esc exists, you can
+still yank and paste to duplicate a damn line without fully bailing out. yy
+yanks the current line, p pastes it below. On a blank line? It'll shove in
+another empty turd. Don't make a habit of this hybrid bullshit; normal mode's
+there for a reason.
 
   1. Plop your cursor on a blank line in normal mode. Hit yy—bam, yanked. Then p. 
      See the duplicate below.
 
 --> This is your original line, you slob.
 -->
---> This is your original line, you slob. (Wait, no—blank yank pastes nothing fancy.)
+--> This is your original line, you slob. 
 -->
 
-  2. Undo with u if it looks like ass. Now try it on a line with text: yy, p. Instant 
-     copy-paste hack.
+  2. Undo with u if it looks like ass. Now try it on a line with text: yy, p.
+  Instant copy-paste hack.
 
-  3. Check the indent—Vim's not stupid, it pastes clean. No extra spaces unless you're drunk.
+  3. Check the indent—Vim's not stupid, it pastes clean. No extra spaces unless
+  you're drunk.
 
-  4. Abuse this on fresh lines till you get bored, then Esc out and use o like a grown-up.
+  4. Abuse this on fresh lines till you get bored, then Esc out and use o like
+  a grown-up.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
             7.10 REPLACING CHARACTERS
 
-r x replaces under cursor with x. 4r a replaces four with 'a'. Careful: 4rx four 
-x's; r4x puts '4' then dx (x as motion, idiot).
+r x replaces under cursor with x. 4r a replaces four with 'a'. Careful: 4rx
+four x's; r4x puts '4' then dx (x as motion, idiot).
 
   1. On 'z', r s (one zzz becomes szz).
 
@@ -914,6 +927,12 @@ x's; r4x puts '4' then dx (x as motion, idiot).
   2. u undo. ^ to start
 
   3. Try 3r y on the first 'x' —replaces xxx with yyy.
+
+  4. One fun use of the r command, is to split a line into two in normal mode.
+  Place, the cursor on the whitespace after split, and hit r, followed by
+  enter.
+
+--> This is where we split the difference.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -937,14 +956,16 @@ x's; r4x puts '4' then dx (x as motion, idiot).
 
             7.12 KEYBOARD MACROS
 
-The . command repeats the preceding change. But what if you want to do something 
-more complex than a single change? That's where the keyboard macros come in. The 
-q<character> command records keystrokes into the register named <character> (the 
-character must be between a and z). To finish recording, just type a q command. You 
-can now execute the macro by typing the @<character> command. (This can be preceded 
-by a count, which will cause the macro to be executed that number of times.)
+The . command repeats the preceding change. But what if you want to do
+something more complex than a single change? That's where the keyboard macros
+come in. The q<character> command records keystrokes into the register named
+<character> (the character must be between a and z). To finish recording, just
+type a q command. You can now execute the macro by typing the @<character>
+command. (This can be preceded by a count, which will cause the macro to be
+executed that number of times.)
 
-  1. You have a list of filenames like this. Move to the first character of the first line.
+  1. You have a list of filenames like this. Move to the first character of the
+  first line.
 
 stdio.h
 fcntl.h
@@ -966,17 +987,18 @@ stdlib.h
 
             7.13 VISUAL BLOCK MODE
 
-Oh, for fuck's sake, if you're still editing line by line like some Emacs weenie 
-afraid of commitment, Visual Block Mode is your chainsaw for columnar carnage. 
-Ctrl-V kicks you into block select—highlight a rectangle of text like you're drafting 
-a spreadsheet in hell. Then yank, delete, change the whole damn slab at once. It's 
-for when lines aren't aligned but you wish they were, or you're fixing a million config 
-files that look like drunk formatting. Load up some ragged-ass text file, or make one 
-with uneven columns. Don't screw around; this mode turns you into a text-slaying 
-machine. Or keep fumbling—your code will thank you by crashing harder.
+Oh, for fuck's sake, if you're still editing line by line like some Emacs
+weenie afraid of commitment, Visual Block Mode is your chainsaw for columnar
+carnage.  Ctrl-V kicks you into block select—highlight a rectangle of text like
+you're drafting a spreadsheet in hell. Then yank, delete, change the whole damn
+slab at once. It's for when lines aren't aligned but you wish they were, or
+you're fixing a million config files that look like drunk formatting. Load up
+some ragged-ass text file, or make one with uneven columns. Don't screw around;
+this mode turns you into a text-slaying machine. Or keep fumbling—your code
+will thank you by crashing harder.
 
-  1. Position cursor on first column, line 1. Ctrl-V, j twice (down two lines), l 
-     three times (right three chars). See the block glow?
+  1. Position cursor on first column, line 1. Ctrl-V, j twice (down two lines),
+  l three times (right three chars). See the block glow?
 
 --> Line1: abc def ghi
 --> Line2: xyz jkl mno
@@ -984,34 +1006,37 @@ machine. Or keep fumbling—your code will thank you by crashing harder.
 
   2. With block selected, d to delete it. u to undo.
 
-  3. Again: Ctrl-V select same block, c, type "FOO", <esc>, <esc>. Fills the block.
+  3. Again: Ctrl-V select same block, c, type "FOO", <esc>, <esc>. Fills the
+  block.
   
   4. Now I for insert before: Select block on "abc", I"BAR ", <esc>, <esc>—pads and inserts 
      left of block.
 
 --> Same lines as above.
 
-  5. A for append after: Select on "ghi", A" ZAP", <esc>, <esc>—adds right, pads shorter 
-     lines.
+  5. A for append after: Select on "ghi", A" ZAP", <esc>, <esc>—adds right,
+  pads shorter lines.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.14 SHIFT COMMANDS
+            7.14 INDENTATION COMMANDS
 
-The Vim editor has lots of commands that help the programmer indent his program 
-correctly—because apparently you can't use spaces like a civilized human without help. 
-The first ones discussed here merely shift the text to the left (<<) or the right (>>). 
-The left shift command (<<) shifts the current line one shift width to the left. The 
-right shift command (>>) does the same in the other direction. But what is a shift width? 
-By default, it's 8, which is about as readable as my commit messages after a bad merge. 
-Studies have shown that an indentation of 4 spaces for each level of logic is the most 
-readable, so a shift width of 4 would be much nicer. To change the size of the shift width, 
+The Vim editor has lots of commands that help the programmer indent his program
+correctly—because apparently you can't use spaces like a civilized human
+without help.  The first ones discussed here merely shift the text to the left
+(<<) or the right (>>).  The left shift command (<<) shifts the current line
+one shift width to the left. The right shift command (>>) does the same in the
+other direction. But what is a shift width?  By default, it's 8, which is about
+as readable as my commit messages after a bad merge.  Studies have shown that
+an indentation of 4 spaces for each level of logic is the most readable, so a
+shift width of 4 would be much nicer. To change the size of the shift width,
 use :set shiftwidth=4. Counts work for multiples: 2>> shifts two lines right. 
 
-In Visual Block mode? Select your block with Ctrl-V, then >> or <<—it shifts the whole 
-rectangle like it should.
+In Visual Block mode? Select your block with Ctrl-V, then >> or <<—it shifts
+the whole rectangle like it should.
 
-  1. Cursor on an unindented line. Type >> to shift right (default 8 spaces—ugly, huh?).
+  1. Cursor on an unindented line. Type >> to shift right (default 8
+  spaces—ugly, huh?).
 
 if (condition) {
 
@@ -1022,23 +1047,28 @@ if (condition) {
 if (condition) {
     do_something();
 
-  4. In Visual Block: Ctrl-V, j (down one), >> to shift both lines' block right. u undo.
-     Then keep using . to futher indent, and u to unindent.
+  4. In Visual Block: Ctrl-V, j (down one), >> to shift both lines' block
+  right. u undo.  Then keep using . to futher indent, and u to unindent.
 
 Misaligned crap:
 foo = bar;
 baz = quux;
 
+  5. While in insert mode use Ctrl+t to indent a line, and Ctrl+d to deindent a
+  line. Your cursor can be placed anywhere in the line for this to work.
+
+Hello, world
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
             7.15 THE = COMMAND
 
-The =motion command indents the selected text using Vim’s internal formatting 
-program—because who has time for manual tab wars? If you want to indent a block 
-of text, for example, you can use the = command to do it. The motion in this case 
-is the % (go to matching {}) command. =% auto-magically fixes the indent for the 
-brace block. Counts? =3j indents three lines down. In Visual mode, select and =—Vim 
-guesses smartly.
+The =motion command indents the selected text using Vim’s internal formatting
+program—because who has time for manual tab wars? If you want to indent a block
+of text, for example, you can use the = command to do it. The motion in this
+case is the % (go to matching {}) command. =% auto-magically fixes the indent
+for the brace block. Counts? =3j indents three lines down. In Visual mode,
+select and =—Vim guesses smartly.
 
   1. Cursor on opening {. Type =% to indent the whole block.
 
@@ -1050,17 +1080,75 @@ guesses smartly.
 
   2. u undo. Select lines with V, j (visual line), = to reindent selection.
 
-  3. =3j to indent current and next two lines. Likewise, = 3k would do the current
-     and previous two lines.
+  3. =3j to indent current and next two lines. Likewise, = 3k would do the
+  current and previous two lines.
 
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+            7.16 SPLITTING THE SCREEN: BECAUSE ONE WINDOW ISN'T ENOUGH FOR YOUR
+            DIVIDED ATTENTION
+
+The :split command (or just :sp) carves up your buffer horizontally into a new
+editing pane, perfect for eyeballing two parts of the same file or juggling
+buffers without alt-tabbing like some Windows pleb. 
+
+Want a vertical split?  :vsplit (:vs) slices it side-by-side, because
+horizontal scrolling in a single pane is for masochists. But if you're feeling
+lazy and need to run make or git blame without leaving Vim's warm embrace,
+:terminal (or :term) blasts open a terminal emulator right in the
+split—horizontal or vertical, your call. 
+
+It's like having a shell that's actually useful, not some detached console
+window mocking your workflow.  Counts? Nah, splits don't care about numbers;
+they just obey :Nsplit for N-way madness, but don't blame me if your screen
+looks like a bad merge conflict visualization.  
+
+  1. Type :sp to horizontally split—boom, duplicate view. Simply hit :q to exit
+  the split.
+
+  2. Likewise, :vsp does a vertical split.
+
+  3. :terminal.  It splits below, drops you in a prompt. Ctrl-w, followed by
+  another w, to jump back to code pane. Exit the terminal with exit or Ctrl+d
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+            7.17 COMPLETION: VIM'S WAY OF SAYING "YOU MEANT THAT, RIGHT?"
+            BEFORE YOU INFURIATE THE MAILING LIST 
 
+Insert mode in Vim isn't just for pounding keys like a caffeinated intern—it's
+got autocomplete that pops up faster than a bug report on LKML. 
 
+Hit Ctrl-N mid-word, and Vim scans your buffers, included files, and dictionary
+for matches, cycling through with Ctrl-N/P like it's daring you to type slower. 
 
+Too vague? Ctrl-X kicks into "completion mode," where Ctrl-X Ctrl-L grabs whole
+lines, Ctrl-X Ctrl-F filenames (godsend for includes), Ctrl-X Ctrl-K dictionary
+words, or Ctrl-X Ctrl-O for omnifunc if you've got syntax plugins that aren't
+half-baked. It's not AI hallucinating your code; it's just Vim being smarter
+than your last commit message. 
+
+Counts?  Prefix with a number for that many completions, but honestly, who
+plans that far ahead? Visual mode? Select and Ctrl-X Ctrl-O if you're fancy,
+but stick to insert for the real magic.  
+
+  1. In insert mode, halfway through "prin" for printf—Ctrl-N. Boom, popup with
+  print*, printf, etc. Ctrl-N to next, Ctrl-P previous. Enter or Tab to insert,
+  or Ctrl-Y to confirm without the fluff. And, use Ctrl+E to exit the dropdown,
+  in the event you do not like any of the options presented.
+
+  2. u undo if it guessed wrong (it won't). Now try Ctrl-X Ctrl-F after
+  suggests files in your pwd. Let's say you have some method called open(), now
+  inside the '', hit Ctrl+X, followed by Ctrl+F.
+
+open('')
+
+  3. For whole-line laziness: Type gibberish, Ctrl-X Ctrl-L—Vim offers lines
+  from your file matching the start. Great for duplicating boilerplate without
+  copy-paste crimes.  
 
 
 
@@ -1101,9 +1189,12 @@ guesses smartly.
 
  15. =motion auto-indents (=% for {} block, V= for selection).
 
+ 16. :split splits the screen for editing, whereas :terminal splits the screen with a
+     a terminal window.
+
+ 17. In insert mode, Ctrl+n toggles completions. We also have the Ctrl+x for completion mode.
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
 
 
 
