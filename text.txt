@@ -807,11 +807,34 @@ deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
   5. Now, from the middle of the line, use C to delete to the end and stay in
   insert mode.
 
-  6. Two counts: Cursor on word, 2d2w deletes two words, twice (four total).
+  6. df<char>: Delete forward to next <char>, inclusive. Cursor on "The", df e
+
+--> The quick brown fox jumps over the lazy dog.
+
+  7. dF<char>: Backward to prev <char>, inclusive. EOL, dF q.
+
+--> The quick brown fox jumps over the lazy dog.
+
+  8. dt<char>: Forward to *before* next <char>. On "brown", dt f → "brown "
+  deleted, f safe.
+
+--> The quick brown fox jumps over the lazy dog.
+
+  9. dT<char>: Backward to *after* prev <char>. On "jumps", dT o 
+
+--> The quick brown fox jumps over the lazy dog.
+
+  10. PRO-TIP: To keep things simple, you can stick to a convention to use d
+  t/T/f/F commands always while keeping the cursor on the start of a word, and
+  using d t <char> to delete forwards and d F <char> to delete backwards.
+
+--> The quick brown fox jumps over the lazy dog.
+
+  11. Two counts: Cursor on word, 2d2w deletes two words, twice (four total).
 
 --> Duplicate words: hello hello hello hello
 
-  7. C-style comment hell: You type // This is my brilliant code idea and hit
+  12. C-style comment hell: You type // This is my brilliant code idea and hit
   Enter, but Vim's being a smartass and auto-slaps //  on the next line. use
   CTRL+u to delete the whole damn //  prefix (it deletes the auto-generated //,
   while keeping you in insert mode). Now type your non-comment crap without the
@@ -820,13 +843,13 @@ deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
                 // This is my brilliant code idea
                 //
 
-  8. Insert mode backspace woes? Ditch that finicky backspace key for Ctrl-h
+  13. Insert mode backspace woes? Ditch that finicky backspace key for Ctrl-h
   (while in insert mode): Same job—deletes one character left—but it is easier
   to reach than the backspace key.
 
 --> hell|o world huhuh
 
-  9. in insert mode, place the cursor on the second l below, then use delete to
+  14. in insert mode, place the cursor on the second l below, then use delete to
   forward delete. too bad, vim's default config maps the natural delete key
   alternative, ctrl + d, to deindent a line.  Now, place the cursor on l, and
   hit delete.
