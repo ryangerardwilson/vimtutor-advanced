@@ -705,7 +705,8 @@ x.  T backward. Counts work: 2f o finds second 'o'. Screw up? <esc> aborts.
 
   4. From end, F e back to first e. 
 
-  5. From start of the line, t e to go before the first e.
+  5. From start of the line, t e to go before the first e. Likewise, T e takes
+  you after the last e.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
