@@ -728,13 +728,20 @@ u undoes.
 
   2. Now, start inserted after "more" again, and use Ctrl+O F C to "Computers".
 
-  3. Use Ctrl+O, followed by d t e delete up to but not including first e in
+  3. To delete characters in insert mode use Ctrl+H/Backspace to delete
+  backwards, and Delete to delete forwards. While Ctrl+H is great for touch
+  typists, there is, sadly, no pleasent alternative for Delete. Given that
+  Ctrl+O x, is not a very pleasent experience, to delete forwards, you have one
+  of two choices: (a) use x in normal mode; or (b) use d t e as indicated in
+  point 4 below.
+
+  4. Use Ctrl+O, followed by d t e delete up to but not including first e in
   "Computer". Hit Ctrl+O u to undo.
 
-  4. While in insert mode, use Ctrl+T/D to indent/de-indent the line. No need
+  5. While in insert mode, use Ctrl+T/D to indent/de-indent the line. No need
   to use the Ctrl+O flag for this. 
 
-  5. End of line, Ctrl+O A to append, type "—it's all about the coffee " (don't
+  6. End of line, Ctrl+O A to append, type "—it's all about the coffee " (don't
   forget the extra space at the end, as using Ctrl+O subsequently, will move
   the cursor one space back), then Ctrl+O, d F - to nuke backwards deleting
   what we just typed.
