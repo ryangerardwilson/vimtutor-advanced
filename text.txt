@@ -724,7 +724,7 @@ u undoes.
   you to change it to cats. Then, Ctrl+O C allows you to retype "than dogs are
   about kibble."
 
---> Computer science is no more about computers than astronomy is about telescopes.
+--> Computer science is no more about computers than astronomy is about telescopes. 
 
   2. Now, start inserted after "more" again, and use Ctrl+O F C to "Computers".
 
@@ -734,8 +734,10 @@ u undoes.
   4. While in insert mode, use Ctrl+T/D to indent/de-indent the line. No need
   to use the Ctrl+O flag for this. 
 
-  5. End of line, Ctrl+O A to append, type "—it's all about the coffee.", then
-  esc, d F s backward including first s to nuke tail.
+  5. End of line, Ctrl+O A to append, type "—it's all about the coffee " (don't
+  forget the extra space at the end, as using Ctrl+O subsequently, will move
+  the cursor one space back), then Ctrl+O, d F - to nuke backwards deleting
+  what we just typed.
 
 
 
