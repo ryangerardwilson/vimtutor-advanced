@@ -709,7 +709,38 @@ x.  T backward. Counts work: 2f o finds second 'o'. Screw up? <esc> aborts.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.3 MOVING TO A SPECIFIC LINE
+            7.3 EDITING IN INSERT MODE WITH CTRL+O CHEATS AND TARGETED DELETES
+
+Ctrl+O f x jumps forward to next x on line—lands on it. Counts: 3f o for third
+'o'. Ctrl+O F x backward. Ctrl+O C changes (deletes) from cursor to line end,
+stays inserted. Ctrl+O ^ to first non-blank char. Ctrl+O $ to end of line.
+Ctrl+O A appends at end. Ctrl+O t indents line; Ctrl+O d unindents. For deletes
+in normal: d f x nukes forward to/including x. d F x backward including. d t x
+up to but excluding x forward. d T x backward excluding. Counts work. Screw up?
+u undoes.
+
+  1. Start inserted after "more". Ctrl+O f c to "computers", Ctrl+O cw, allows
+  you to change it to cats. Then, Ctrl+O C allows you to retype "than dogs are
+  about kibble."
+
+--> Computer science is no more about computers than astronomy is about telescopes.
+
+  2. Now, start inserted after "more" again, and use Ctrl+O F C to "Computers".
+
+  3. Use Ctrl+O, followed by d t e delete up to but not including first e in
+  "Computer". Hit Ctrl+O u to undo.
+
+  4. While in insert mode, use Ctrl+T/D to indent/de-indent the line. No need
+  to use the Ctrl+O flag for this. 
+
+  5. End of line, Ctrl+O A to append, type "—it's all about the coffee.", then
+  esc, d F s backward including first s to nuke tail.
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            7.4 MOVING TO A SPECIFIC LINE
 
 G with number: 5G to line 5. No number? Bottom of file. Beats your idiotic gg
 or 9999k nonsense.
@@ -730,7 +761,7 @@ or 9999k nonsense.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.4 SCROLLING UP AND DOWN
+            7.5 SCROLLING UP AND DOWN
 
 <c-u> scrolls half-screen up (text moves down). <c-d> half-screen down. Smooth
 sailing, no jarring jumps.</c-d></c-u>
@@ -752,7 +783,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</c-d>
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.5 DELETING TEXT
+            7.6 DELETING TEXT
 
 x deletes a character in normal mode. 3x deletes 3 characters.  d + motion: dw
 deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
@@ -802,7 +833,7 @@ deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.6 JOINING TEXT
+            7.7 JOINING TEXT
 
 J + motion (or just J for the next line, you lazy hack): Glues lines together,
 smashing that newline like it insulted your mother. Capital J adds a space; gJ
@@ -854,7 +885,7 @@ Line three
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.7 CHANGING TEXT
+            7.8 CHANGING TEXT
 
 c + motion: cw changes word (delete to space, insert). cc whole line. c$ to end
 (C shortcut).  Note: cw stops at space, dw eats it.
@@ -873,7 +904,7 @@ c + motion: cw changes word (delete to space, insert). cc whole line. c$ to end
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.8 THE . COMMAND
+            7.9 THE . COMMAND
 
 . repeats last delete/change. Position, dot, repeat. Godsend for boilerplate
 hell.
@@ -892,7 +923,7 @@ hell.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.9 ADDING LINES IN NORMAL MODE
+            7.10 ADDING LINES IN NORMAL MODE
 
 Look, if you're in normal mode like a newbie who forgot Esc exists, you can
 still yank and paste to duplicate a damn line without fully bailing out. yy
@@ -919,7 +950,7 @@ there for a reason.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.10 REPLACING CHARACTERS
+            7.11 REPLACING CHARACTERS
 
 r x replaces under cursor with x. 4r a replaces four with 'a'. Careful: 4rx
 four x's; r4x puts '4' then dx (x as motion, idiot).
@@ -940,7 +971,7 @@ four x's; r4x puts '4' then dx (x as motion, idiot).
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.11 CHANGING CASE
+            7.12 CHANGING CASE
 
 ~ toggles case under cursor. 3~ three chars.
 
@@ -959,7 +990,7 @@ four x's; r4x puts '4' then dx (x as motion, idiot).
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.12 KEYBOARD MACROS
+            7.13 KEYBOARD MACROS
 
 The . command repeats the preceding change. But what if you want to do
 something more complex than a single change? That's where the keyboard macros
@@ -990,7 +1021,7 @@ stdlib.h
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.13 VISUAL BLOCK MODE
+            7.14 VISUAL BLOCK MODE
 
 Oh, for fuck's sake, if you're still editing line by line like some Emacs
 weenie afraid of commitment, Visual Block Mode is your chainsaw for columnar
@@ -1024,7 +1055,7 @@ will thank you by crashing harder.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.14 INDENTATION COMMANDS
+            7.15 INDENTATION COMMANDS
 
 The Vim editor has lots of commands that help the programmer indent his program
 correctly—because apparently you can't use spaces like a civilized human
@@ -1066,7 +1097,7 @@ Hello, world
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.15 THE = COMMAND
+            7.16 THE = COMMAND
 
 The =motion command indents the selected text using Vim’s internal formatting
 program—because who has time for manual tab wars? If you want to indent a block
@@ -1092,7 +1123,7 @@ select and =—Vim guesses smartly.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.16 SPLITTING THE SCREEN: BECAUSE ONE WINDOW ISN'T ENOUGH FOR YOUR
+            7.17 SPLITTING THE SCREEN: BECAUSE ONE WINDOW ISN'T ENOUGH FOR YOUR
             DIVIDED ATTENTION
 
 The :split command (or just :sp) carves up your buffer horizontally into a new
@@ -1121,7 +1152,7 @@ looks like a bad merge conflict visualization.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.17 COMPLETION: VIM'S WAY OF SAYING "YOU MEANT THAT, RIGHT?"
+            7.18 COMPLETION: VIM'S WAY OF SAYING "YOU MEANT THAT, RIGHT?"
             BEFORE YOU INFURIATE THE MAILING LIST 
 
 Insert mode in Vim isn't just for pounding keys like a caffeinated intern—it's
@@ -1167,40 +1198,46 @@ open('')
 
   2. f x forward to x, F back; t x before, T before back. <Esc> abort.
 
-  3. nG line n, G end.
+  3. In insert mode, use Ctrl+O followed by a normal mode command to remain in
+  insert mode even after the normal mode command executes.
 
-  4. <C-U> half up, <C-D> half down.
+  4. nG line n, G end.
 
-  5. d motion: dw word, d3w three, d$/D end. Counts flexible.
+  5. <C-U> half up, <C-D> half down.
 
-  6. J join next line (adds space, you idiot—gJ skips it for code purists); 
-     count joins multiples, like 3J to mash a pile of crap into one line without the 
-     drama.
+  6. d motion: dw word, d3w three, d$/D end. Counts flexible.
 
-  7. c motion: cw word, cc line, c$/C end. cw nuance: to space.
+  7. J join next line (adds space, you idiot—gJ skips it for code purists);
+  count joins multiples, like 3J to mash a pile of crap into one line without
+  the drama.
 
-  8. . repeats last d/c. Position and dot.
+  8. c motion: cw word, cc line, c$/C end. cw nuance: to space.
 
-  9. Add lines in normal mode: Cursor on the line, hit yy to yank it, p to slap a 
-     duplicate below.
+  9. . repeats last d/c. Position and dot.
 
- 10. r x replace (count multiples). Order matters.
+  10. Add lines in normal mode: Cursor on the line, hit yy to yank it, p to
+  slap a duplicate below.
 
- 11. ~ case toggle (count range).
+  11. r x replace (count multiples). Order matters.
 
- 12. q a record macro a, q stop; @a play (n@a for count).
-
- 13. Ctrl-V block mode; select with hjkl, d/y/c/I/A ops; <Esc> out. Counts for size.
-
- 14. >> right shift, << left (per line or count); :set shiftwidth=4; Visual Block too.
-
- 15. =motion auto-indents (=% for {} block, V= for selection).
-
- 16. :split splits the screen for editing, whereas :terminal splits the screen with a
-     a terminal window.
-
- 17. In insert mode, Ctrl+n toggles completions. We also have the Ctrl+x for completion mode.
-
+  12. ~ case toggle (count range).
+ 
+  13. q a record macro a, q stop; @a play (n@a for count).
+ 
+  14. Ctrl-V block mode; select with hjkl, d/y/c/I/A ops; <Esc> out. Counts for
+  size.
+ 
+  15. >> right shift, << left (per line or count); :set shiftwidth=4; Visual
+  Block too.
+ 
+  16. =motion auto-indents (=% for {} block, V= for selection).
+ 
+  17. :split splits the screen for editing, whereas :terminal splits the screen
+  with a a terminal window.
+ 
+  18. In insert mode, Ctrl+n toggles completions. We also have the Ctrl+x for
+  completion mode.
+ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
