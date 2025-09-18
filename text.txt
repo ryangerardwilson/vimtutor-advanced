@@ -791,6 +791,14 @@ u undoes.
     - for terminal history use Ctrl+P/N instead of arrow up/down arrow.
     - for navigating characters in terminal, use Ctrl+b/f instead of left/right
       arrow
+    - for navigating words in terinal use Alt+b/f instead of Ctrl+Left/Right
+    - for deleting characters use ctrl+h for backwards delete, and ctrl+d for
+      forward delete
+    - for deleting words use Alt+D for forward delete and Ctrl+W for backward
+      delete
+    - use Ctrl+_ to undo the last action in the terminal
+    - Use Ctrl+X Ctrl+E to use vim to type in terminal commands, provided you
+      have set up vim as your editor in your .bashrc 
     - remap your terminal navigation to use Alt+h/l for prev/next tabs, instead
       of arrow key based approaches.
     - remap your browser navigation to use Alt+h/l for prev/next tabs, and
