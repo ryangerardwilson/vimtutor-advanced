@@ -1000,7 +1000,12 @@ four x's; r4x puts '4' then dx (x as motion, idiot).
 
 --> H
 
-  3. Full line: Position start, put line in CAPS if needed, 30~ or whatever.
+  3. Use g~iw to toggle the case of a word. Once you execute, you can pair it
+  with the . repeat command for a smooth workflow.
+
+--> HELLO WORLD
+
+  4. Full line: Position start, put line in CAPS if needed, 30~ or whatever.
 
 --> all caps rant here.
 
