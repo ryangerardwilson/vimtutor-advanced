@@ -742,33 +742,57 @@ u undoes.
     2a. While in insert mode, use Ctrl+T/D to indent/de-indent the line. No
     need to use the Ctrl+O flag for this. 
 
-  3. Useful Normal Mode Commands in Insert Mode: 
+  3. Boring stuff to make peace with in Insert Mode
 
-    3a. Start inserted after "more".  Ctrl+O f c to "computers", Ctrl+O cw,
+    3a. Use CAPS lock if you are gonna type a whole lot of capitalized text
+
+    3b. Use the DELETE key to delete forwards.
+
+  4. Stuff you should NEVER do in Insert Mode for good muscle memory:
+
+    4a. NEVER use arrow keys to navigate. Simply escape to normal mode to navigate.
+    Normal mode is optimized for this shit, dont be tempted by the existence of
+    the arrow keys.
+
+    4b. NEVER use the delete key to backspace. Use Ctrl+H. Its hard to
+    reposition your fingers for touch typing after hitting the delete key
+    because of the horrible layout of most keyboards.
+
+  5. Useful Normal Mode Commands in Insert Mode: 
+
+    5a. Start inserted after "more".  Ctrl+O f c to "computers", Ctrl+O cw,
     allows you to change it to cats. Then, Ctrl+O C allows you to retype "than
     dogs are about kibble."
 
 --> Computer science is no more about computers than astronomy is about telescopes. 
 
-    3b. Now, start inserted after "more" again, and use Ctrl+O F C to
+    5b. Now, start inserted after "more" again, and use Ctrl+O F C to
     "Computers".
 
-    3c. To delete characters in insert mode use Ctrl+H/Backspace to delete
+    5c. To delete characters in insert mode use Ctrl+H/Backspace to delete
     backwards, and Delete to delete forwards. While Ctrl+H is great for touch
     typists, there is, sadly, no pleasent alternative for Delete. Given that
     Ctrl+O x, is not a very pleasent experience, to delete forwards, you have
     one of two choices: (a) use x in normal mode; or (b) use d t e as indicated
     in point 4 below.
 
-    3c. Use Ctrl+O, followed by d t e delete up to but not including first e in
+    5c. Use Ctrl+O, followed by d t e delete up to but not including first e in
     "Computer". Hit Ctrl+O u to undo.
 
-    3d. End of line, Ctrl+O A to append, type "—it's all about the coffee "
+    5d. End of line, Ctrl+O A to append, type "—it's all about the coffee "
     (don't forget the extra space at the end, as using Ctrl+O subsequently,
     will move the cursor one space back), then Ctrl+O, d F - to nuke backwards
     deleting what we just typed.
 
+  6. Good habbits to develop outside vim to optimize good muscle memory.
 
+    6a. Eliminate your need to use the up arrow/ down arrow keys as much as
+    possible. 
+    - for terminal history use Ctrl+P/N instead of arrow up/down arrow.
+    - remap your terminal navigation to use Alt+h/l for prev/next tabs, instead
+      of arrow key based approaches.
+    - remap your browser navigation to use Alt+h/l for prev/next tabs, and
+      Ctrl+u/d for scroll up/down.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1127,8 +1151,9 @@ if (condition) {
 if (condition) {
     do_something();
 
-  4. In Visual Block: Ctrl-V, j (down one), >> to shift both lines' block
-  right. u undo.  Then keep using . to futher indent, and u to unindent.
+  4. In Visual Block: Ctrl-V, j (down one), > (yes, just a single > is enough)
+  to shift both lines' block right. Likewise, < for left. u undo.  Then keep
+  using . to futher indent, and u to unindent.
 
 Misaligned crap:
 foo = bar;
@@ -1192,6 +1217,14 @@ looks like a bad merge conflict visualization.
 
   3. :terminal.  It splits below, drops you in a prompt. Ctrl-w, followed by
   another w, to jump back to code pane. Exit the terminal with exit or Ctrl+d
+
+  4. PRO-TIP: Add this to your .vimrc to open terminal with ,t and tmux with
+  ,tmux
+
+command! TMUX terminal ++close tmux new-session
+let mapleader = ","
+nnoremap <Leader>tmux :TMUX<CR>
+nnoremap <Leader>t :terminal<CR>
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
