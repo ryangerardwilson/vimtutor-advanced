@@ -720,31 +720,53 @@ in normal: d f x nukes forward to/including x. d F x backward including. d t x
 up to but excluding x forward. d T x backward excluding. Counts work. Screw up?
 u undoes.
 
-  1. Start inserted after "more". Ctrl+O f c to "computers", Ctrl+O cw, allows
-  you to change it to cats. Then, Ctrl+O C allows you to retype "than dogs are
-  about kibble."
+  1. Entering Insert Mode with Precision: 
+
+    1a. Half the battle is won by going into insert mode accurately. The first
+    thing to notice is that i takes you into insert mode, at the exact position
+    of the cursor. a takes you to insert mode after the position of the cursor.
+    I takes you at the begining of the line, and A takes you to the end of the
+    line.
 
 --> Computer science is no more about computers than astronomy is about telescopes. 
 
-  2. Now, start inserted after "more" again, and use Ctrl+O F C to "Computers".
+    1b. The second thing to notice is that cw takes you to insert mode to
+    change a word, cc takes you into insert mode to change the line afer the
+    first non-whitespace character, and C takes you into insert mode to change
+    the rest of the line from wherever your cursor is at.
 
-  3. To delete characters in insert mode use Ctrl+H/Backspace to delete
-  backwards, and Delete to delete forwards. While Ctrl+H is great for touch
-  typists, there is, sadly, no pleasent alternative for Delete. Given that
-  Ctrl+O x, is not a very pleasent experience, to delete forwards, you have one
-  of two choices: (a) use x in normal mode; or (b) use d t e as indicated in
-  point 4 below.
+--> Computer science is no more about computers than astronomy is about telescopes. 
 
-  4. Use Ctrl+O, followed by d t e delete up to but not including first e in
-  "Computer". Hit Ctrl+O u to undo.
+  2. Native Insert Mode Commands
 
-  5. While in insert mode, use Ctrl+T/D to indent/de-indent the line. No need
-  to use the Ctrl+O flag for this. 
+    2a. While in insert mode, use Ctrl+T/D to indent/de-indent the line. No
+    need to use the Ctrl+O flag for this. 
 
-  6. End of line, Ctrl+O A to append, type "—it's all about the coffee " (don't
-  forget the extra space at the end, as using Ctrl+O subsequently, will move
-  the cursor one space back), then Ctrl+O, d F - to nuke backwards deleting
-  what we just typed.
+  3. Useful Normal Mode Commands in Insert Mode: 
+
+    3a. Start inserted after "more".  Ctrl+O f c to "computers", Ctrl+O cw,
+    allows you to change it to cats. Then, Ctrl+O C allows you to retype "than
+    dogs are about kibble."
+
+--> Computer science is no more about computers than astronomy is about telescopes. 
+
+    3b. Now, start inserted after "more" again, and use Ctrl+O F C to
+    "Computers".
+
+    3c. To delete characters in insert mode use Ctrl+H/Backspace to delete
+    backwards, and Delete to delete forwards. While Ctrl+H is great for touch
+    typists, there is, sadly, no pleasent alternative for Delete. Given that
+    Ctrl+O x, is not a very pleasent experience, to delete forwards, you have
+    one of two choices: (a) use x in normal mode; or (b) use d t e as indicated
+    in point 4 below.
+
+    3c. Use Ctrl+O, followed by d t e delete up to but not including first e in
+    "Computer". Hit Ctrl+O u to undo.
+
+    3d. End of line, Ctrl+O A to append, type "—it's all about the coffee "
+    (don't forget the extra space at the end, as using Ctrl+O subsequently,
+    will move the cursor one space back), then Ctrl+O, d F - to nuke backwards
+    deleting what we just typed.
 
 
 
