@@ -789,6 +789,8 @@ u undoes.
     6a. Eliminate your need to use the up arrow/ down arrow keys as much as
     possible. 
     - for terminal history use Ctrl+P/N instead of arrow up/down arrow.
+    - for navigating characters in terminal, use Ctrl+b/f instead of left/right
+      arrow
     - remap your terminal navigation to use Alt+h/l for prev/next tabs, instead
       of arrow key based approaches.
     - remap your browser navigation to use Alt+h/l for prev/next tabs, and
