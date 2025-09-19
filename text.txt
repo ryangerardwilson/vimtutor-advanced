@@ -644,13 +644,49 @@ Note: This avoids typing  i , the last character, the text to insert, <ESC>,
 
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+                LESSON 7.1: GOOD HABITS TO DEVELOP OUTSIDE VIM TO OPTIMIZE GOOD
+                MUSCLE MEMORY.
 
+  1. Eliminate your need to use the arrow keys in the default terminal.  
+
+    1a. Add this to your .bashrc
+
+set -o vi
+
+    1b. Now, your terminal is by default in insert mode. Type anything, then
+    hit Esc to enter normal mode. You will notice that your normal mode
+    nvaigation commands are working here.
+
+    1c. Now, for your terminal history, Esc into normal mode, and hit /, and
+    type what you are searching for, and hit Enter. Now use n/N to toggle
+    through the search items. Once you fing what you are looking for, use
+    Ctrl+i/A to edit it, or simply hit Enter to execute it.
+
+    1d. for terminal history: Get into normal mode, and use j/k to go to your
+    previous/next commands.
+
+    1e. Using the full vim editor for your commands: Type some gibberish in
+    insert mode, then escape into normal mode, and hit v. Once you exit,
+    whatever you typed will execute.
+
+    1f. remap your terminal navigation to use Alt+h/l for prev/next tabs,
+    instead of arrow key based approaches.
+
+  2. Eliminate using arrow keys in web browsers and other apps.
+
+    2a. use Ctrl+l to type in the address bar, with tab/ shift+tab to navigate
+    that menu.
+
+    2b. remap your browser navigation to use Alt+h/l for prev/next tabs
+    
+    2c. remap to use Ctrl+u/d for scroll up/down.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             
-             Lesson 7.1: MOVING TO THE START OR END OF A LINE
+             Lesson 7.2: MOVING TO THE START OR END OF A LINE
 
 $ catapults to the end of the line. <End> key does the same if you're not a
 purist.  ^ rockets to the first non-blank character—ignores leading spaces. 0
@@ -690,7 +726,7 @@ or <Home> nails the absolute beginning.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.2 SEARCHING ALONG A SINGLE LINE
+            7.3 SEARCHING ALONG A SINGLE LINE
 
 f x hunts forward for character x—lands on it. F backward. t x stops one before
 x.  T backward. Counts work: 2f o finds second 'o'. Screw up? <esc> aborts.
@@ -710,7 +746,7 @@ x.  T backward. Counts work: 2f o finds second 'o'. Screw up? <esc> aborts.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.3 EDITING IN INSERT MODE WITH CTRL+O CHEATS AND TARGETED DELETES
+            7.4 EDITING IN INSERT MODE WITH CTRL+O CHEATS AND TARGETED DELETES
 
 Ctrl+O f x jumps forward to next x on line—lands on it. Counts: 3f o for third
 'o'. Ctrl+O F x backward. Ctrl+O C changes (deletes) from cursor to line end,
@@ -784,29 +820,9 @@ u undoes.
     will move the cursor one space back), then Ctrl+O, d F - to nuke backwards
     deleting what we just typed.
 
-  6. Good habbits to develop outside vim to optimize good muscle memory.
-
-    6a. Eliminate your need to use the up arrow/ down arrow keys as much as
-    possible. 
-    - for terminal history use Ctrl+P/N instead of arrow up/down arrow.
-    - for navigating characters in terminal, use Ctrl+b/f instead of left/right
-      arrow
-    - for navigating words in terinal use Alt+b/f instead of Ctrl+Left/Right
-    - for deleting characters use ctrl+h for backwards delete, and ctrl+d for
-      forward delete
-    - for deleting words use Alt+D for forward delete and Ctrl+W for backward
-      delete
-    - use Ctrl+_ to undo the last action in the terminal
-    - Use Ctrl+X Ctrl+E to use vim to type in terminal commands, provided you
-      have set up vim as your editor in your .bashrc 
-    - remap your terminal navigation to use Alt+h/l for prev/next tabs, instead
-      of arrow key based approaches.
-    - remap your browser navigation to use Alt+h/l for prev/next tabs, and
-      Ctrl+u/d for scroll up/down.
-
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            7.4 MOVING TO A SPECIFIC LINE
+            7.5 MOVING TO A SPECIFIC LINE
 
 G with number: 5G to line 5. No number? Bottom of file. Beats your idiotic gg
 or 9999k nonsense.
@@ -827,7 +843,7 @@ or 9999k nonsense.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.5 SCROLLING UP AND DOWN
+            7.6 SCROLLING UP AND DOWN
 
 <c-u> scrolls half-screen up (text moves down). <c-d> half-screen down. Smooth
 sailing, no jarring jumps.</c-d></c-u>
@@ -849,7 +865,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</c-d>
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.6 DELETING TEXT
+            7.7 DELETING TEXT
 
 x deletes a character in normal mode. 3x deletes 3 characters.  d + motion: dw
 deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
@@ -906,7 +922,7 @@ deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.7 JOINING TEXT
+            7.8 JOINING TEXT
 
 J + motion (or just J for the next line, you lazy hack): Glues lines together,
 smashing that newline like it insulted your mother. Capital J adds a space; gJ
@@ -958,7 +974,7 @@ Line three
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.8 CHANGING TEXT
+            7.9 CHANGING TEXT
 
 c + motion: cw changes word (delete to space, insert). cc whole line. c$ to end
 (C shortcut).  Note: cw stops at space, dw eats it.
@@ -977,7 +993,7 @@ c + motion: cw changes word (delete to space, insert). cc whole line. c$ to end
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.9 THE . COMMAND
+            7.10 THE . COMMAND
 
 . repeats last delete/change. Position, dot, repeat. Godsend for boilerplate
 hell.
@@ -996,7 +1012,7 @@ hell.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.10 ADDING LINES IN NORMAL MODE
+            7.11 ADDING LINES IN NORMAL MODE
 
 Look, if you're in normal mode like a newbie who forgot Esc exists, you can
 still yank and paste to duplicate a damn line without fully bailing out. yy
@@ -1023,7 +1039,7 @@ there for a reason.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.11 REPLACING CHARACTERS
+            7.12 REPLACING CHARACTERS
 
 r x replaces under cursor with x. 4r a replaces four with 'a'. Careful: 4rx
 four x's; r4x puts '4' then dx (x as motion, idiot).
@@ -1044,7 +1060,7 @@ four x's; r4x puts '4' then dx (x as motion, idiot).
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.12 CHANGING CASE
+            7.13 CHANGING CASE
 
 ~ toggles case under cursor. 3~ three chars.
 
@@ -1068,7 +1084,7 @@ four x's; r4x puts '4' then dx (x as motion, idiot).
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.13 KEYBOARD MACROS
+            7.14 KEYBOARD MACROS
 
 The . command repeats the preceding change. But what if you want to do
 something more complex than a single change? That's where the keyboard macros
@@ -1099,7 +1115,7 @@ stdlib.h
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.14 VISUAL BLOCK MODE
+            7.15 VISUAL BLOCK MODE
 
 Oh, for fuck's sake, if you're still editing line by line like some Emacs
 weenie afraid of commitment, Visual Block Mode is your chainsaw for columnar
@@ -1133,7 +1149,7 @@ will thank you by crashing harder.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.15 INDENTATION COMMANDS
+            7.16 INDENTATION COMMANDS
 
 The Vim editor has lots of commands that help the programmer indent his program
 correctly—because apparently you can't use spaces like a civilized human
@@ -1176,7 +1192,7 @@ Hello, world
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.16 THE = COMMAND
+            7.17 THE = COMMAND
 
 The =motion command indents the selected text using Vim’s internal formatting
 program—because who has time for manual tab wars? If you want to indent a block
@@ -1202,7 +1218,7 @@ select and =—Vim guesses smartly.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.17 SPLITTING THE SCREEN: BECAUSE ONE WINDOW ISN'T ENOUGH FOR YOUR
+            7.18 SPLITTING THE SCREEN: BECAUSE ONE WINDOW ISN'T ENOUGH FOR YOUR
             DIVIDED ATTENTION
 
 The :split command (or just :sp) carves up your buffer horizontally into a new
@@ -1239,7 +1255,7 @@ nnoremap <Leader>t :terminal<CR>
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.18 COMPLETION: VIM'S WAY OF SAYING "YOU MEANT THAT, RIGHT?"
+            7.19 COMPLETION: VIM'S WAY OF SAYING "YOU MEANT THAT, RIGHT?"
             BEFORE YOU INFURIATE THE MAILING LIST 
 
 Insert mode in Vim isn't just for pounding keys like a caffeinated intern—it's
@@ -1280,49 +1296,50 @@ open('')
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                    LESSON 7 SUMMARY
 
+  1. Add "set -o vi" to your ~/.bashrc to avoid bad habits when exiting vim.
 
-  1. $ end (<End>), ^ first non-blank, 0/<Home> start. Counts for $.
+  2. $ end (<End>), ^ first non-blank, 0/<Home> start. Counts for $.
 
-  2. f x forward to x, F back; t x before, T before back. <Esc> abort.
+  3. f x forward to x, F back; t x before, T before back. <Esc> abort.
 
-  3. In insert mode, use Ctrl+O followed by a normal mode command to remain in
+  4. In insert mode, use Ctrl+O followed by a normal mode command to remain in
   insert mode even after the normal mode command executes.
 
-  4. nG line n, G end.
+  5. nG line n, G end.
 
-  5. <C-U> half up, <C-D> half down.
+  6. <C-U> half up, <C-D> half down.
 
-  6. d motion: dw word, d3w three, d$/D end. Counts flexible.
+  7. d motion: dw word, d3w three, d$/D end. Counts flexible.
 
-  7. J join next line (adds space, you idiot—gJ skips it for code purists);
+  8. J join next line (adds space, you idiot—gJ skips it for code purists);
   count joins multiples, like 3J to mash a pile of crap into one line without
   the drama.
 
-  8. c motion: cw word, cc line, c$/C end. cw nuance: to space.
+  9. c motion: cw word, cc line, c$/C end. cw nuance: to space.
 
-  9. . repeats last d/c. Position and dot.
+  10. . repeats last d/c. Position and dot.
 
-  10. Add lines in normal mode: Cursor on the line, hit yy to yank it, p to
+  11. Add lines in normal mode: Cursor on the line, hit yy to yank it, p to
   slap a duplicate below.
 
-  11. r x replace (count multiples). Order matters.
+  12. r x replace (count multiples). Order matters.
 
-  12. ~ case toggle (count range).
+  13. ~ case toggle (count range).
  
-  13. q a record macro a, q stop; @a play (n@a for count).
+  14. q a record macro a, q stop; @a play (n@a for count).
  
-  14. Ctrl-V block mode; select with hjkl, d/y/c/I/A ops; <Esc> out. Counts for
+  15. Ctrl-V block mode; select with hjkl, d/y/c/I/A ops; <Esc> out. Counts for
   size.
  
-  15. >> right shift, << left (per line or count); :set shiftwidth=4; Visual
+  16. >> right shift, << left (per line or count); :set shiftwidth=4; Visual
   Block too.
  
-  16. =motion auto-indents (=% for {} block, V= for selection).
+  17. =motion auto-indents (=% for {} block, V= for selection).
  
-  17. :split splits the screen for editing, whereas :terminal splits the screen
+  18. :split splits the screen for editing, whereas :terminal splits the screen
   with a a terminal window.
  
-  18. In insert mode, Ctrl+n toggles completions. We also have the Ctrl+x for
+  19. In insert mode, Ctrl+n toggles completions. We also have the Ctrl+x for
   completion mode.
  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
