@@ -780,9 +780,13 @@ u undoes.
 
   3. Boring stuff to make peace with in Insert Mode
 
-    3a. Use CAPS lock if you are gonna type a whole lot of capitalized text
+    3a. Use CAPS lock if you are gonna type a whole lot of capitalized text. If
+    you hate CAPS lock, type out the entire text in lower case, and use ~ in
+    normal mode (post a selection) to capitalize everything).
 
-    3b. Use the DELETE key to delete forwards.
+    3b. Use the DELETE key to delete forwards. But this shouldn't be a major
+    irritant, as you can go into normal mode to delete forwards with ease, and
+    Ctrl+h works perfectly for backspace in insert mode.
 
   4. Stuff you should NEVER do in Insert Mode for good muscle memory:
 
