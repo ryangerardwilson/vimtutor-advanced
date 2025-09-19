@@ -924,13 +924,6 @@ deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
 
 --> hell|o world 
 
-  10. in insert mode, place the cursor on the second l below, then use delete to
-  forward delete. too bad, vim's default config maps the natural delete key
-  alternative, ctrl + d, to deindent a line.  Now, place the cursor on l, and
-  hit delete.
-
---> hell|o world 
-
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1048,6 +1041,16 @@ there for a reason.
 
   4. Abuse this on fresh lines till you get bored, then Esc out and use o like
   a grown-up.
+
+  5. You can also add the below to your .vimrc, to break to a new line with
+  your ,Enter - or insert a line below (without breaking current line) with ,n
+
+let mapleader = ","
+" ,Enter: Insert a line-break at position of cursor without leaving normal mode
+nnoremap <Leader><CR> i<CR><Esc>
+" ,n: Insert a line-break below without leaving normal mode
+nnoremap <Leader>n o<Esc>
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
