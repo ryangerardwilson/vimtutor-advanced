@@ -780,8 +780,8 @@ u undoes.
 
   3. While, we will discuss how to delete in insert mode, the cold hard truth
   is that, if it can't be done with a simple Ctrl+H, the easiest way to delete
-  is to use select while in normal mode, followed by x. So, make this your
-  primary habit.
+  is to use select while in normal mode, followed by x - or, c - if you want to
+  go directly into insert mode. So, make this your primary habit.
 
   4. Boring stuff to make peace with in Insert Mode
 
@@ -900,9 +900,8 @@ deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
   insert mode. On the other hand, cc allows you to replace the whole line
   starting from the first non space character.
 
-  6. PRO-TIP: To keep things simple, you can stick to a convention to use d
-  t/T/f/F commands always while keeping the cursor on the start of a word, and
-  using d t <char> to delete forwards and d F <char> to delete backwards.
+  6. PRO-TIP: To keep things simple, you can simply use visual mode to select,
+  followed by x to delete - or c to delete and enter insert mode.
 
 --> The quick brown fox jumps over the lazy dog.
 
