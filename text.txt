@@ -764,14 +764,14 @@ u undoes.
     I takes you at the begining of the line, and A takes you to the end of the
     line.
 
---> Computer science is no more about computers than astronomy is about telescopes. 
+  Computer science is no more about computers than astronomy is about telescopes. 
 
     1b. The second thing to notice is that cw takes you to insert mode to
     change a word, cc takes you into insert mode to change the line afer the
     first non-whitespace character, and C takes you into insert mode to change
     the rest of the line from wherever your cursor is at.
 
---> Computer science is no more about computers than astronomy is about telescopes. 
+  Computer science is no more about computers than astronomy is about telescopes. 
 
   2. Native Insert Mode Commands
 
@@ -810,7 +810,7 @@ u undoes.
     allows you to change it to cats. Then, Ctrl+O C allows you to retype "than
     dogs are about kibble."
 
---> Computer science is no more about computers than astronomy is about telescopes. 
+  Computer science is no more about computers than astronomy is about telescopes. 
 
     6b. Now, start inserted after "more" again, and use Ctrl+O F C to
     "Computers".
@@ -826,7 +826,7 @@ u undoes.
     "Computer". Hit Ctrl+O u to undo.
 
 
---> Computer science is no more about computers than astronomy is about telescopes. 
+  Computer science is no more about computers than astronomy is about telescopes. 
 
     6f. End of line, Ctrl+O A to append, type "—it's all about the coffee "
     (don't forget the extra space at the end, as using Ctrl+O subsequently,
