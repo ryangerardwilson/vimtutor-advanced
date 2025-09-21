@@ -646,47 +646,8 @@ Note: This avoids typing  i , the last character, the text to insert, <ESC>,
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-                LESSON 7.1: GOOD HABITS TO DEVELOP OUTSIDE VIM TO OPTIMIZE GOOD
-                MUSCLE MEMORY.
 
-  1. Eliminate your need to use the arrow keys in the default terminal.  
-
-    1a. Add this to your .bashrc
-
-set -o vi
-
-    1b. Now, your terminal is by default in insert mode. Type anything, then
-    hit Esc to enter normal mode. You will notice that your normal mode
-    nvaigation commands are working here.
-
-    1c. Now, for your terminal history, Esc into normal mode, and hit /, and
-    type what you are searching for, and hit Enter. Now use n/N to toggle
-    through the search items. Once you fing what you are looking for, use
-    Ctrl+i/A to edit it, or simply hit Enter to execute it.
-
-    1d. for terminal history: Get into normal mode, and use j/k to go to your
-    previous/next commands.
-
-    1e. Using the full vim editor for your commands: Type some gibberish in
-    insert mode, then escape into normal mode, and hit v. Once you exit,
-    whatever you typed will execute.
-
-    1f. remap your terminal navigation to use Alt+h/l for prev/next tabs,
-    instead of arrow key based approaches.
-
-  2. Eliminate using arrow keys in web browsers and other apps.
-
-    2a. use Ctrl+l to type in the address bar, with tab/ shift+tab to navigate
-    that menu.
-
-    2b. remap your browser navigation to use Alt+h/l for prev/next tabs
-    
-    2c. remap to use Ctrl+u/d for scroll up/down.
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            
-             Lesson 7.2: MOVING TO THE START OR END OF A LINE
+             Lesson 7.1: MOVING TO THE START OR END OF A LINE
 
 $ catapults to the end of the line. <End> key does the same if you're not a
 purist.  ^ rockets to the first non-blank character—ignores leading spaces. 0
@@ -726,7 +687,7 @@ or <Home> nails the absolute beginning.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.3 SEARCHING ALONG A SINGLE LINE
+            7.2 SEARCHING ALONG A SINGLE LINE
 
 f x hunts forward for character x—lands on it. F backward. t x stops one before
 x.  T backward. Counts work: 2f o finds second 'o'. Screw up? <esc> aborts.
@@ -746,7 +707,416 @@ x.  T backward. Counts work: 2f o finds second 'o'. Screw up? <esc> aborts.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.4 EDITING IN INSERT MODE WITH CTRL+O CHEATS AND TARGETED DELETES
+            7.3 MOVING TO A SPECIFIC LINE
+
+G with number: 5G to line 5. No number? Bottom of file. Beats your idiotic gg
+or 9999k nonsense.
+
+  1. Type :set number to see lines (or not, whatever).
+
+  2. Then <line3number>G
+
+--> Line 1: Foo bar baz
+--> Line 2: Quux quuux
+--> Line 3: Hello there
+--> Line 4: World peace
+--> Line 5: End of story
+
+  3. G bottom of the page. 
+
+  4. Now :set nonumber if you hate numbers.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+            7.4 SCROLLING UP AND DOWN
+
+<c-u> scrolls half-screen up (text moves down). <c-d> half-screen down. Smooth
+sailing, no jarring jumps.</c-d></c-u>
+
+  1. Scroll down with <c-d> twice.
+
+--> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat.
+
+--> More filler: Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</c-d>
+
+  2. Up with <c-u>.
+
+  3. Repeat to feel the flow—don't fight it, you stubborn mule.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+            7.5 DELETING TEXT
+
+x deletes a character in normal mode. 3x deletes 3 characters.  d + motion: dw
+deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
+
+  1. Cursor on "xabquick". 3x detles 3 characters.
+
+--> The xabquick brown fox jumps over the lazy dog.
+
+  2. Cursor on "quick". dw deletes "quick". Undo with u.
+
+--> The quick brown fox jumps over the lazy dog.
+
+  3. Now on "brown", d3w deletes "brown fox jumps". u to undo.
+
+  4. From start, D or d$ deletes to end. However, there is no capitalized
+  shortcut for d^ and d0 to delete backwards to the beginning.
+
+  5. Now, from the middle of the line, use C to delete to the end and stay in
+  insert mode. On the other hand, cc allows you to replace the whole line
+  starting from the first non space character.
+
+  6. PRO-TIP: To keep things simple, you can simply use visual mode to select,
+  followed by x to delete - or c to delete and enter insert mode.
+
+--> The quick brown fox jumps over the lazy dog.
+
+  7. C-style comment hell: You type // This is my brilliant code idea and hit
+  Enter, but Vim's being a smartass and auto-slaps //  on the next line. use
+  CTRL+u/ or cc to delete the whole damn //  prefix (it deletes the auto-generated //,
+  while keeping you in insert mode). Now type your non-comment crap without the
+  babysitter.
+
+                // This is my brilliant code idea
+                //
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+            7.6 JOINING TEXT
+
+J + motion (or just J for the next line, you lazy hack): Glues lines together,
+smashing that newline like it insulted your mother. Capital J adds a space; gJ
+smashes without one, because sometimes you don't want Vim playing whitespace
+nanny.  Counts work too—3J joins three lines down, you slob.
+
+  1. Cursor on end of first line. J joins it to the next, adding a space. Undo
+  with u, because you'll fuck it up first try.
+
+The quick brown fox
+jumps over the lazy dog.
+
+    (After: The quick brown fox jumps over the lazy dog.)
+
+  2. Now on "The", 3J slurps the next two lines into one big happy family. u to
+  bail if it looks like ass.
+
+The quick brown
+fox jumps
+over the lazy dog.
+
+    (After: The quick brown fox jumps over the lazy dog.)
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+            7.7 CHANGING TEXT
+
+c + motion: cw changes word (delete to space, insert). cc whole line. c$ to end
+(C shortcut).  Note: cw stops at space, dw eats it.
+
+  1. On "fox", cw, type "cat", <esc>. See: The quick brown cat jumps...
+
+--> The quick brown fox jumps over the lazy dog.
+
+  2. u to undo. cc on a line, type new text.
+
+    Old text here.
+
+  3. From mid-line, C, type new end.
+
+  4. Try cw again on "lazy"—note it stops at space, not like dw.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+            7.8 THE . COMMAND
+
+. repeats last delete/change. Position, dot, repeat. Godsend for boilerplate
+hell.
+
+  1. On first <B>, df> deletes to > (<B> gone).
+
+--> <B>bold1</B> <B>bold2</B> <B>bold3</B>
+
+  2. Move to next <B>'s <, type . to repeat.
+
+  3. Now for change: cw on first "foo", type "bar", <Esc>.
+
+--> foo baz foo quux foo zap
+
+  4. Move to next "foo", . to swap it too.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+            7.9 ADDING LINES IN NORMAL MODE
+
+Look, if you're in normal mode like a newbie who forgot Esc exists, you can
+still yank and paste to duplicate a damn line without fully bailing out. yy
+yanks the current line, p pastes it below. On a blank line? It'll shove in
+another empty turd. Don't make a habit of this hybrid bullshit; normal mode's
+there for a reason.
+
+  1. Plop your cursor on a blank line in normal mode. Hit yy—bam, yanked. Then p. 
+     See the duplicate below.
+
+--> This is your original line, you slob.
+-->
+--> This is your original line, you slob. 
+-->
+
+  2. You can also add the below to your .vimrc, to break to a new line with
+  your ,Enter - or insert a line below (without breaking current line) with ,n
+
+let mapleader = ","
+" ,Enter: Insert a line-break at position of cursor without leaving normal mode
+nnoremap <Leader><CR> i<CR><Esc>
+" ,n: Insert a line-break below without leaving normal mode
+nnoremap <Leader>n o<Esc>
+
+  3. Now play around with ,Enter from midline, and ,n from anywhere.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+            7.10 REPLACING CHARACTERS
+
+r x replaces under cursor with x. 4r a replaces four with 'a'. Careful: 4rx
+four x's; r4x puts '4' then dx (x as motion, idiot).
+
+  1. On 'x', r s (one xxx becomes sxx).
+
+    xxx lazy dog has toys.
+
+  2. u undo. 
+
+  3. Try 3r y on the first 'x' —replaces xxx with yyy.
+
+  4. One fun use of the r command, is to split a line into two in normal mode.
+  Place, the cursor on the whitespace after split, and hit r, followed by
+  enter.
+
+--> This is where we split the difference.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+            7.11 CHANGING CASE
+
+~ toggles case under cursor. 3~ three chars.
+
+  1. On HELLO, 3~ flips first three: helLO
+
+--> HELLO WORLD
+
+  2. ~ once more on same spot: 
+
+--> H
+
+  3. Use g~iw to toggle the case of a word. Once you execute, you can pair it
+  with the . repeat command for a smooth workflow.
+
+--> HELLO WORLD
+
+  4. Full line: Position start, put line in CAPS if needed, 30~ or whatever.
+
+--> all caps rant here.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+            7.12 INDENTATION COMMANDS
+
+The Vim editor has lots of commands that help the programmer indent his program
+correctly—because apparently you can't use spaces like a civilized human
+without help.  The first ones discussed here merely shift the text to the left
+(<<) or the right (>>).  The left shift command (<<) shifts the current line
+one shift width to the left. The right shift command (>>) does the same in the
+other direction. But what is a shift width?  By default, it's 8, which is about
+as readable as my commit messages after a bad merge.  Studies have shown that
+an indentation of 4 spaces for each level of logic is the most readable, so a
+shift width of 4 would be much nicer. To change the size of the shift width,
+use :set shiftwidth=4. Counts work for multiples: 2>> shifts two lines right. 
+
+In Visual Block mode? Select your block with Ctrl-V, then >> or <<—it shifts
+the whole rectangle like it should.
+
+  1. Cursor on an unindented line. Type >> to shift right (default 8
+  spaces—ugly, huh?).
+
+if (condition) {
+
+  2. u undo. :set shiftwidth=4, then >> again—nicer, 4 spaces.
+
+  3. 2>> to shift current and next line right.
+
+if (condition) {
+    do_something();
+
+  4. In Visual Block: Ctrl-V, j (down one), > (yes, just a single > is enough)
+  to shift both lines' block right. Likewise, < for left. u undo.  Then keep
+  using . to futher indent, and u to unindent.
+
+Misaligned crap:
+foo = bar;
+baz = quux;
+
+  5. While in insert mode use Ctrl+t to indent a line, and Ctrl+d to deindent a
+  line. Your cursor can be placed anywhere in the line for this to work.
+
+Hello, world
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+            7.13 THE = COMMAND
+
+The =motion command indents the selected text using Vim’s internal formatting
+program—because who has time for manual tab wars? If you want to indent a block
+of text, for example, you can use the = command to do it. The motion in this
+case is the % (go to matching {}) command. =% auto-magically fixes the indent
+for the brace block. Counts? =3j indents three lines down. In Visual mode,
+select and =—Vim guesses smartly.
+
+  1. Cursor on opening {. Type =% to indent the whole block.
+
+    if (x > 0) {
+                 printf("Positive");
+
+       printf("Done"); 
+                                }
+
+  2. u undo. Select lines with V, j (visual line), = to reindent selection.
+
+  3. =3j to indent current and next two lines. Likewise, = 3k would do the
+  current and previous two lines.
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+            7.14 SPLITTING THE SCREEN: BECAUSE ONE WINDOW ISN'T ENOUGH FOR YOUR
+            DIVIDED ATTENTION
+
+The :split command (or just :sp) carves up your buffer horizontally into a new
+editing pane, perfect for eyeballing two parts of the same file or juggling
+buffers without alt-tabbing like some Windows pleb. 
+
+Want a vertical split?  :vsplit (:vs) slices it side-by-side, because
+horizontal scrolling in a single pane is for masochists. But if you're feeling
+lazy and need to run make or git blame without leaving Vim's warm embrace,
+:terminal (or :term) blasts open a terminal emulator right in the
+split—horizontal or vertical, your call. 
+
+It's like having a shell that's actually useful, not some detached console
+window mocking your workflow.  Counts? Nah, splits don't care about numbers;
+they just obey :Nsplit for N-way madness, but don't blame me if your screen
+looks like a bad merge conflict visualization.  
+
+  1. Type :sp to horizontally split—boom, duplicate view. Simply hit :q to exit
+  the split.
+
+  2. Likewise, :vsp does a vertical split.
+
+  3. :terminal.  It splits below, drops you in a prompt. Ctrl-w, followed by
+  another w, to jump back to code pane. Exit the terminal with exit or Ctrl+d
+
+  4. PRO-TIP: Add this to your .vimrc to open terminal with ,t and tmux with
+  ,tmux
+
+command! TMUX terminal ++close tmux new-session
+let mapleader = ","
+nnoremap <Leader>tmux :TMUX<CR>
+nnoremap <Leader>t :terminal<CR>
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                   LESSON 7 SUMMARY
+
+
+  1. $ end (<End>), ^ first non-blank, 0/<Home> start. Counts for $.
+
+  2. f x hunts forward for character x—lands on it. F backward. t x stops one
+  before x.  T backward. 
+
+  3. nG line n, G end.
+
+  4. <C-U> half up, <C-D> half down.
+
+  5. d motion: dw word, d3w three, d$/D end. Counts flexible.
+
+  6. J join next line (adds space, you idiot—gJ skips it for code purists);
+  count joins multiples, like 3J to mash a pile of crap into one line without
+  the drama.
+
+  7. c motion: cw word, cc line, c$/C end. cw nuance: to space.
+
+  8. . repeats last d/c. Position and dot.
+
+  9. Add lines in normal mode: Cursor on the line, hit yy to yank it, p to
+  slap a duplicate below.
+
+  10. r x replace (count multiples). Order matters.
+
+  11. ~ case toggle (count range).
+ 
+  12. >> right shift, << left (per line or count); :set shiftwidth=4; Visual
+  Block too.
+ 
+  13. =motion auto-indents (=% for {} block, V= for selection).
+ 
+  14. :split splits the screen for editing, whereas :terminal splits the screen
+  with a a terminal window.
+ 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+                LESSON 8.1: GOOD HABITS TO DEVELOP OUTSIDE VIM TO OPTIMIZE GOOD
+                MUSCLE MEMORY.
+
+  1. Eliminate your need to use the arrow keys in the default terminal.  
+
+    1a. Add this to your .bashrc
+
+set -o vi
+
+    1b. Now, your terminal is by default in insert mode. Type anything, then
+    hit Esc to enter normal mode. You will notice that your normal mode
+    nvaigation commands are working here.
+
+    1c. Now, for your terminal history, Esc into normal mode, and hit /, and
+    type what you are searching for, and hit Enter. Now use n/N to toggle
+    through the search items. Once you fing what you are looking for, use
+    Ctrl+i/A to edit it, or simply hit Enter to execute it.
+
+    1d. for terminal history: Get into normal mode, and use j/k to go to your
+    previous/next commands.
+
+    1e. Using the full vim editor for your commands: Type some gibberish in
+    insert mode, then escape into normal mode, and hit v. Once you exit,
+    whatever you typed will execute.
+
+    1f. remap your terminal navigation to use Alt+h/l for prev/next tabs,
+    instead of arrow key based approaches.
+
+  2. Eliminate using arrow keys in web browsers and other apps.
+
+    2a. use Ctrl+l to type in the address bar, with tab/ shift+tab to navigate
+    that menu.
+
+    2b. remap your browser navigation to use Alt+h/l for prev/next tabs
+    
+    2c. remap to use Ctrl+u/d for scroll up/down.
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+            8.2 EDITING IN INSERT MODE WITH CTRL+O CHEATS AND TARGETED DELETES
 
 Ctrl+O f x jumps forward to next x on line—lands on it. Counts: 3f o for third
 'o'. Ctrl+O F x backward. Ctrl+O C changes (deletes) from cursor to line end,
@@ -829,228 +1199,7 @@ u undoes.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            7.5 MOVING TO A SPECIFIC LINE
-
-G with number: 5G to line 5. No number? Bottom of file. Beats your idiotic gg
-or 9999k nonsense.
-
-  1. Type :set number to see lines (or not, whatever).
-
-  2. Then <line3number>G
-
---> Line 1: Foo bar baz
---> Line 2: Quux quuux
---> Line 3: Hello there
---> Line 4: World peace
---> Line 5: End of story
-
-  3. G bottom of the page. 
-
-  4. Now :set nonumber if you hate numbers.
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-            7.6 SCROLLING UP AND DOWN
-
-<c-u> scrolls half-screen up (text moves down). <c-d> half-screen down. Smooth
-sailing, no jarring jumps.</c-d></c-u>
-
-  1. Scroll down with <c-d> twice.
-
---> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.
-
---> More filler: Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</c-d>
-
-  2. Up with <c-u>.
-
-  3. Repeat to feel the flow—don't fight it, you stubborn mule.
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-            7.7 DELETING TEXT
-
-x deletes a character in normal mode. 3x deletes 3 characters.  d + motion: dw
-deletes word. d3w three words. d$ to end (D shortcut). 2dw = d2w.
-
-  1. Cursor on "xabquick". 3x detles 3 characters.
-
---> The xabquick brown fox jumps over the lazy dog.
-
-  2. Cursor on "quick". dw deletes "quick". Undo with u.
-
---> The quick brown fox jumps over the lazy dog.
-
-  3. Now on "brown", d3w deletes "brown fox jumps". u to undo.
-
-  4. From start, D or d$ deletes to end. However, there is no capitalized
-  shortcut for d^ and d0 to delete backwards to the beginning.
-
-  5. Now, from the middle of the line, use C to delete to the end and stay in
-  insert mode. On the other hand, cc allows you to replace the whole line
-  starting from the first non space character.
-
-  6. PRO-TIP: To keep things simple, you can simply use visual mode to select,
-  followed by x to delete - or c to delete and enter insert mode.
-
---> The quick brown fox jumps over the lazy dog.
-
-  7. C-style comment hell: You type // This is my brilliant code idea and hit
-  Enter, but Vim's being a smartass and auto-slaps //  on the next line. use
-  CTRL+u/ or cc to delete the whole damn //  prefix (it deletes the auto-generated //,
-  while keeping you in insert mode). Now type your non-comment crap without the
-  babysitter.
-
-                // This is my brilliant code idea
-                //
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-            7.8 JOINING TEXT
-
-J + motion (or just J for the next line, you lazy hack): Glues lines together,
-smashing that newline like it insulted your mother. Capital J adds a space; gJ
-smashes without one, because sometimes you don't want Vim playing whitespace
-nanny.  Counts work too—3J joins three lines down, you slob.
-
-  1. Cursor on end of first line. J joins it to the next, adding a space. Undo
-  with u, because you'll fuck it up first try.
-
-The quick brown fox
-jumps over the lazy dog.
-
-    (After: The quick brown fox jumps over the lazy dog.)
-
-  2. Now on "The", 3J slurps the next two lines into one big happy family. u to
-  bail if it looks like ass.
-
-The quick brown
-fox jumps
-over the lazy dog.
-
-    (After: The quick brown fox jumps over the lazy dog.)
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-            7.9 CHANGING TEXT
-
-c + motion: cw changes word (delete to space, insert). cc whole line. c$ to end
-(C shortcut).  Note: cw stops at space, dw eats it.
-
-  1. On "fox", cw, type "cat", <esc>. See: The quick brown cat jumps...
-
---> The quick brown fox jumps over the lazy dog.
-
-  2. u to undo. cc on a line, type new text.
-
-    Old text here.
-
-  3. From mid-line, C, type new end.
-
-  4. Try cw again on "lazy"—note it stops at space, not like dw.
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-            7.10 THE . COMMAND
-
-. repeats last delete/change. Position, dot, repeat. Godsend for boilerplate
-hell.
-
-  1. On first <B>, df> deletes to > (<B> gone).
-
---> <B>bold1</B> <B>bold2</B> <B>bold3</B>
-
-  2. Move to next <B>'s <, type . to repeat.
-
-  3. Now for change: cw on first "foo", type "bar", <Esc>.
-
---> foo baz foo quux foo zap
-
-  4. Move to next "foo", . to swap it too.
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-            7.11 ADDING LINES IN NORMAL MODE
-
-Look, if you're in normal mode like a newbie who forgot Esc exists, you can
-still yank and paste to duplicate a damn line without fully bailing out. yy
-yanks the current line, p pastes it below. On a blank line? It'll shove in
-another empty turd. Don't make a habit of this hybrid bullshit; normal mode's
-there for a reason.
-
-  1. Plop your cursor on a blank line in normal mode. Hit yy—bam, yanked. Then p. 
-     See the duplicate below.
-
---> This is your original line, you slob.
--->
---> This is your original line, you slob. 
--->
-
-  2. You can also add the below to your .vimrc, to break to a new line with
-  your ,Enter - or insert a line below (without breaking current line) with ,n
-
-let mapleader = ","
-" ,Enter: Insert a line-break at position of cursor without leaving normal mode
-nnoremap <Leader><CR> i<CR><Esc>
-" ,n: Insert a line-break below without leaving normal mode
-nnoremap <Leader>n o<Esc>
-
-  3. Now play around with ,Enter from midline, and ,n from anywhere.
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-            7.12 REPLACING CHARACTERS
-
-r x replaces under cursor with x. 4r a replaces four with 'a'. Careful: 4rx
-four x's; r4x puts '4' then dx (x as motion, idiot).
-
-  1. On 'x', r s (one xxx becomes sxx).
-
-    xxx lazy dog has toys.
-
-  2. u undo. 
-
-  3. Try 3r y on the first 'x' —replaces xxx with yyy.
-
-  4. One fun use of the r command, is to split a line into two in normal mode.
-  Place, the cursor on the whitespace after split, and hit r, followed by
-  enter.
-
---> This is where we split the difference.
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-            7.13 CHANGING CASE
-
-~ toggles case under cursor. 3~ three chars.
-
-  1. On HELLO, 3~ flips first three: helLO
-
---> HELLO WORLD
-
-  2. ~ once more on same spot: 
-
---> H
-
-  3. Use g~iw to toggle the case of a word. Once you execute, you can pair it
-  with the . repeat command for a smooth workflow.
-
---> HELLO WORLD
-
-  4. Full line: Position start, put line in CAPS if needed, 30~ or whatever.
-
---> all caps rant here.
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-            7.14 KEYBOARD MACROS
+            8.3 KEYBOARD MACROS
 
 The . command repeats the preceding change. But what if you want to do
 something more complex than a single change? That's where the keyboard macros
@@ -1081,7 +1230,7 @@ stdlib.h
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.15 VISUAL BLOCK MODE
+            8.4 VISUAL BLOCK MODE
 
 Oh, for fuck's sake, if you're still editing line by line like some Emacs
 weenie afraid of commitment, Visual Block Mode is your chainsaw for columnar
@@ -1115,113 +1264,7 @@ will thank you by crashing harder.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            7.16 INDENTATION COMMANDS
-
-The Vim editor has lots of commands that help the programmer indent his program
-correctly—because apparently you can't use spaces like a civilized human
-without help.  The first ones discussed here merely shift the text to the left
-(<<) or the right (>>).  The left shift command (<<) shifts the current line
-one shift width to the left. The right shift command (>>) does the same in the
-other direction. But what is a shift width?  By default, it's 8, which is about
-as readable as my commit messages after a bad merge.  Studies have shown that
-an indentation of 4 spaces for each level of logic is the most readable, so a
-shift width of 4 would be much nicer. To change the size of the shift width,
-use :set shiftwidth=4. Counts work for multiples: 2>> shifts two lines right. 
-
-In Visual Block mode? Select your block with Ctrl-V, then >> or <<—it shifts
-the whole rectangle like it should.
-
-  1. Cursor on an unindented line. Type >> to shift right (default 8
-  spaces—ugly, huh?).
-
-if (condition) {
-
-  2. u undo. :set shiftwidth=4, then >> again—nicer, 4 spaces.
-
-  3. 2>> to shift current and next line right.
-
-if (condition) {
-    do_something();
-
-  4. In Visual Block: Ctrl-V, j (down one), > (yes, just a single > is enough)
-  to shift both lines' block right. Likewise, < for left. u undo.  Then keep
-  using . to futher indent, and u to unindent.
-
-Misaligned crap:
-foo = bar;
-baz = quux;
-
-  5. While in insert mode use Ctrl+t to indent a line, and Ctrl+d to deindent a
-  line. Your cursor can be placed anywhere in the line for this to work.
-
-Hello, world
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-            7.17 THE = COMMAND
-
-The =motion command indents the selected text using Vim’s internal formatting
-program—because who has time for manual tab wars? If you want to indent a block
-of text, for example, you can use the = command to do it. The motion in this
-case is the % (go to matching {}) command. =% auto-magically fixes the indent
-for the brace block. Counts? =3j indents three lines down. In Visual mode,
-select and =—Vim guesses smartly.
-
-  1. Cursor on opening {. Type =% to indent the whole block.
-
-    if (x > 0) {
-                 printf("Positive");
-
-       printf("Done"); 
-                                }
-
-  2. u undo. Select lines with V, j (visual line), = to reindent selection.
-
-  3. =3j to indent current and next two lines. Likewise, = 3k would do the
-  current and previous two lines.
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-            7.18 SPLITTING THE SCREEN: BECAUSE ONE WINDOW ISN'T ENOUGH FOR YOUR
-            DIVIDED ATTENTION
-
-The :split command (or just :sp) carves up your buffer horizontally into a new
-editing pane, perfect for eyeballing two parts of the same file or juggling
-buffers without alt-tabbing like some Windows pleb. 
-
-Want a vertical split?  :vsplit (:vs) slices it side-by-side, because
-horizontal scrolling in a single pane is for masochists. But if you're feeling
-lazy and need to run make or git blame without leaving Vim's warm embrace,
-:terminal (or :term) blasts open a terminal emulator right in the
-split—horizontal or vertical, your call. 
-
-It's like having a shell that's actually useful, not some detached console
-window mocking your workflow.  Counts? Nah, splits don't care about numbers;
-they just obey :Nsplit for N-way madness, but don't blame me if your screen
-looks like a bad merge conflict visualization.  
-
-  1. Type :sp to horizontally split—boom, duplicate view. Simply hit :q to exit
-  the split.
-
-  2. Likewise, :vsp does a vertical split.
-
-  3. :terminal.  It splits below, drops you in a prompt. Ctrl-w, followed by
-  another w, to jump back to code pane. Exit the terminal with exit or Ctrl+d
-
-  4. PRO-TIP: Add this to your .vimrc to open terminal with ,t and tmux with
-  ,tmux
-
-command! TMUX terminal ++close tmux new-session
-let mapleader = ","
-nnoremap <Leader>tmux :TMUX<CR>
-nnoremap <Leader>t :terminal<CR>
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-            7.19 COMPLETION: VIM'S WAY OF SAYING "YOU MEANT THAT, RIGHT?"
+            8.5 COMPLETION: VIM'S WAY OF SAYING "YOU MEANT THAT, RIGHT?"
             BEFORE YOU INFURIATE THE MAILING LIST 
 
 Insert mode in Vim isn't just for pounding keys like a caffeinated intern—it's
@@ -1267,52 +1310,19 @@ open('')
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                   LESSON 7 SUMMARY
+                   LESSON 8 SUMMARY
 
   1. Add "set -o vi" to your ~/.bashrc to avoid bad habits when exiting vim.
 
-  2. $ end (<End>), ^ first non-blank, 0/<Home> start. Counts for $.
-
-  3. f x forward to x, F back; t x before, T before back. <Esc> abort.
-
-  4. In insert mode, use Ctrl+O followed by a normal mode command to remain in
+  2. In insert mode, use Ctrl+O followed by a normal mode command to remain in
   insert mode even after the normal mode command executes.
-
-  5. nG line n, G end.
-
-  6. <C-U> half up, <C-D> half down.
-
-  7. d motion: dw word, d3w three, d$/D end. Counts flexible.
-
-  8. J join next line (adds space, you idiot—gJ skips it for code purists);
-  count joins multiples, like 3J to mash a pile of crap into one line without
-  the drama.
-
-  9. c motion: cw word, cc line, c$/C end. cw nuance: to space.
-
-  10. . repeats last d/c. Position and dot.
-
-  11. Add lines in normal mode: Cursor on the line, hit yy to yank it, p to
-  slap a duplicate below.
-
-  12. r x replace (count multiples). Order matters.
-
-  13. ~ case toggle (count range).
+   
+  3. q a record macro a, q stop; @a play (n@a for count).
  
-  14. q a record macro a, q stop; @a play (n@a for count).
- 
-  15. Ctrl-V block mode; select with hjkl, d/y/c/I/A ops; <Esc> out. Counts for
+  4. Ctrl-V block mode; select with hjkl, d/y/c/I/A ops; <Esc> out. Counts for
   size.
  
-  16. >> right shift, << left (per line or count); :set shiftwidth=4; Visual
-  Block too.
- 
-  17. =motion auto-indents (=% for {} block, V= for selection).
- 
-  18. :split splits the screen for editing, whereas :terminal splits the screen
-  with a a terminal window.
- 
-  19. In insert mode, Ctrl+n toggles completions. We also have the Ctrl+x for
+  5. In insert mode, Ctrl+n toggles completions. We also have the Ctrl+x for
   completion mode.
  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
