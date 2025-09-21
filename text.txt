@@ -1176,26 +1176,12 @@ u undoes.
     reposition your fingers for touch typing after hitting the delete key
     because of the horrible layout of most keyboards.
 
-  6. Useful Normal Mode Commands in Insert Mode: 
-
-    6a. Start inserted after "more".  Ctrl+O f c to "computers", Ctrl+O cw,
-    allows you to change it to cats. Then, Ctrl+O C allows you to retype "than
-    dogs are about kibble."
-
-  Computer science is no more about computers than astronomy is about telescopes. 
-
-    6b. Now, start inserted after "more" again, and use Ctrl+O F C to
-    "Computers".
-
-    6c. To delete characters in insert mode use Ctrl+H/Backspace to delete
-    backwards, and Delete to delete forwards. While Ctrl+H is great for touch
-    typists, there is, sadly, no pleasent alternative for Delete. Given that
-    Ctrl+O x, is not a very pleasent experience, to delete forwards, you have
-    one of two choices: (a) use x in normal mode; or (b) use d t e as indicated
-    in point 6d below.
-
-    6d. Use Ctrl+O, followed by d t e delete up to but not including first e in
-    "Computer". Hit Ctrl+O u to undo.
+  6. Useful Normal Mode Commands in Insert Mode: To use normal mode commands in
+  insert mode, use Ctrl+O, followed by a single normal mode command. However,
+  note that you are only allowed ONE normal mode command. For instance: Start
+  inserted after "more".  Ctrl+O f c to "computers", Ctrl+O cw, allows you to
+  change it to cats. Then, Ctrl+O C allows you to retype "than dogs are about
+  kibble."
 
   Computer science is no more about computers than astronomy is about telescopes. 
 
@@ -1287,8 +1273,9 @@ but stick to insert for the real magic.
 
   1. In insert mode, halfway through "prin" for printf—Ctrl-N. Boom, popup with
   print*, printf, etc. Ctrl-N to next, Ctrl-P previous. Enter or Tab to insert,
-  or Ctrl-Y to confirm without the fluff. And, use Ctrl+E to exit the dropdown,
-  in the event you do not like any of the options presented.
+  or Ctrl-Y to confirm without the fluff (or Esc to confirm and exit to noraml
+  mode direly). And, use Ctrl+E to exit the dropdown, in the event you do not
+  like any of the options presented.
 
 --> prin
 
@@ -1296,16 +1283,13 @@ but stick to insert for the real magic.
   that while the first completes with next match, the other completes with the
   previous match.
 
-  3. After selecting a completion, if you want to insert the completion and
-  enter into normal mode, simply use Esc instead of Ctrl+Y.
-
-  4. u undo if it guessed wrong (it won't). Now try Ctrl-X Ctrl-F after
+  3. u undo if it guessed wrong (it won't). Now try Ctrl-X Ctrl-F after
   suggests files in your pwd. Let's say you have some method called open(), now
   inside the '', hit Ctrl+X, followed by Ctrl+F.
 
 open('')
 
-  5. For whole-line laziness: Type gibberish, Ctrl-X Ctrl-L—Vim offers lines
+  4. For whole-line laziness: Type gibberish, Ctrl-X Ctrl-L—Vim offers lines
   from your file matching the start. Great for duplicating boilerplate without
   copy-paste crimes.  
 
