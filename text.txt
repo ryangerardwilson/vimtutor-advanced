@@ -1148,6 +1148,8 @@ u undoes.
     2a. While in insert mode, use Ctrl+T/D to indent/de-indent the line. No
     need to use the Ctrl+O flag for this. 
 
+    2b. Use Ctrl+n/p to tigger completions.
+
   3. While, we will discuss how to delete in insert mode, the cold hard truth
   is that, if it can't be done with a simple Ctrl+H, the easiest way to delete
   is to use select while in normal mode, followed by x - or, c - if you want to
