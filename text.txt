@@ -1107,9 +1107,9 @@ set -o vi
     2a. use Ctrl+l to type in the address bar, with tab/ shift+tab to navigate
     that menu.
 
-    2b. remap your browser navigation to use Alt+h/l for prev/next tabs
+    2b. Remap your browser navigation to use Alt+h/l for prev/next tabs
     
-    2c. remap to use Ctrl+u/d for scroll up/down.
+    2c. Remap to use Ctrl+u/d for scroll up/down.
 
 
 
