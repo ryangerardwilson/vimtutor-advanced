@@ -1,5 +1,5 @@
 ===============================================================================
-=    W e l c o m e   t o   t h e   V I M   T u t o r  ADVANCED                =
+=       W e l c o m e   t o   t h e   V I M   T u t o r  ADVANCED             =
 ===============================================================================
 
     This is an opinionated variant of Vim Tutor cooked up by Ryan Gerard Wilson
@@ -1102,15 +1102,16 @@ set -o vi
     1f. remap your terminal navigation to use Alt+h/l for prev/next tabs,
     instead of arrow key based approaches.
 
-  2. Make your web browser shortcuts vim-ish.
+  2. Make your web browser shortcuts vim-ish. For the browser, we will
+  maintain the convention of rooting all shortcuts in Alt+Shift.
 
     2a. Remap your browser navigation to use Alt+Shift+h/l for prev/next tabs
 
     2b. Remap your browser to use Alt+Shift+N for new tab, and Alt+Shift+W to
-    close the current tab.
+    close the current tab. Likewise, Alt+Shift+R to reload the page.
     
-    2c. Remap to use Ctrl+u/d for scroll up/down. You may need ot manually set
-    this up via an extenison. 
+    2c. Remap to use Alt+Shift+j/k for scroll up/down. You may need to manually
+    set this up via an extenison. 
     
   3. Shit post on X, as x has a lot of pure-keyboard experience shortcuts, for
   instance:
