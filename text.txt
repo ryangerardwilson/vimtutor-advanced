@@ -1104,9 +1104,12 @@ set -o vi
 
   2. Make your web browser shortcuts vim-ish.
 
-    2a. Remap your browser navigation to use Alt+h/l for prev/next tabs
+    2a. Remap your browser navigation to use Alt+Shift+h/l for prev/next tabs
+
+    2b. Remap your browser to use Alt+Shift+N for new tab, and Alt+Shift+W to
+    close the current tab.
     
-    2b. Remap to use Ctrl+u/d for scroll up/down. You may need ot manually set
+    2c. Remap to use Ctrl+u/d for scroll up/down. You may need ot manually set
     this up via an extenison. 
     
   3. Shit post on X, as x has a lot of pure-keyboard experience shortcuts, for
