@@ -1164,10 +1164,19 @@ vi ~/.config/hypr/bindings.conf
 bind = SUPER, H, workspace, -1
 bind = SUPER, L, workspace, +1
 bind = CTRL, h, exec, wtype -k backspace
+bind = ALT, H, movefocus, l
+bind = ALT, L, movefocus, r
+bind = ALT, J, movefocus, d
+bind = ALT, K, movefocus, u
+bind = SUPER_SHIFT, H, swapwindow, l
+bind = SUPER_SHIFT, L, swapwindow, r
+bind = SUPER_SHIFT, J, swapwindow, d
+bind = SUPER_SHIFT, K, swapwindow, u
 
-    5b. Now, use Super+H/L to move between workspaces, and Ctrl+h to backspace
-    globally.  Outside the terminal, this may backspace the entire word, but
-    that's okay- its not as big an irritant as using the backspace key.
+    5b. Now, use Super+H/L to move between workspaces, Alt+h/j/k/l to move
+    between windows within a workspace, and Ctrl+h to backspace globally.
+    Outside the terminal, this may backspace the entire word, but that's okay-
+    its not as big an irritant as using the backspace key.
     
     5c. Now, let's explore Omarchy's quick launchers:
     - Super+Space: Application Launcher
@@ -1184,10 +1193,10 @@ bind = CTRL, h, exec, wtype -k backspace
     5d. Now, open multiple windows in the same workspace, and play:
 
     - Alt+Tab: Cycle between windows in the same workspace.
-    - Super+ArrowKeys: Now open a gazillion apps. Notice that Alt+Tab is slow
-      and inefficient to toggle between all. So, instead, we can use the arrow
+    - Alt+h/j/k/l: Now open a gazillion apps. Notice that Alt+Tab is
+      slow and inefficient to toggle between all. So, instead, we can use these
       keys to navigate more efficiently.
-    - Super+Shift+Arrow: Swap Window in direction of arrow
+    - Super+Shift+h/j/k/l: Swap Window in direction of h/j/k/l
     - Super+J: Toggle between horizontal/vertical stacking
     - Super++: Grow window on the left
     - Super+-: Grow window on the right
