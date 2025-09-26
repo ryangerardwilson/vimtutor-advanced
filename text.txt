@@ -1131,7 +1131,8 @@ set -o vi
 
     3f. Use gu to search for a specific user.
 
-    3g. Use l to like a post, r to reply, t to repost, and s to share a post.
+    3g. Use l to like a post, r to reply, t to repost, and s to share a post
+    (followed by Enter to copy the link of the post you want to share).
    
   4. Use plain old ipython in the terminal. The native python REPL does not
   have the best vim support.
