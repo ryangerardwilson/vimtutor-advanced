@@ -1181,8 +1181,8 @@ bind = ALT_SHIFT, K, swapwindow, u
 # Window Management
 bind = ALT, W, killactive,
 bind = ALT, T, togglesplit,
-bind = ALT, equal, resizeactive, -10 0
-bind = ALT, minus, resizeactive, 10 0
+bind = ALT, equal, resizeactive, 10 0
+bind = ALT, minus, resizeactive, -10 0
 bind = ALT SHIFT, equal, resizeactive, 0 -10
 bind = ALT SHIFT, minus, resizeactive, 0 10
 
