@@ -1178,6 +1178,13 @@ bind = ALT_SHIFT, H, swapwindow, l
 bind = ALT_SHIFT, L, swapwindow, r
 bind = ALT_SHIFT, J, swapwindow, d
 bind = ALT_SHIFT, K, swapwindow, u
+# Window Management
+bind = ALT, W, killactive,
+bind = ALT, J, togglesplit,
+bind = ALT, equal, resizeactive, -10 0
+bind = ALT, minus, resizeactive, 10 0
+bind = ALT SHIFT, equal, resizeactive, 0 -10
+bind = ALT SHIFT, minus, resizeactive, 0 10
 
     5b. Now, use Super+H/L to move between workspaces, Alt+h/j/k/l to move
     between windows within a workspace, and Alt+Shift+h/j/k/l to swap windows.
@@ -1185,12 +1192,6 @@ bind = ALT_SHIFT, K, swapwindow, u
     at it, you can also experiment with the below Omarchy defaults.
 
   - Alt+Tab: Cycle between windows in the same workspace.
-  - Super+J: Toggle between horizontal/vertical stacking
-  - Super++: Grow window on the left
-  - Super+-: Grow window on the right
-  - Super+Shift++: Grow window on the top
-  - Super+Shift+-: Grow window on the bottom
-  - Super+W: Close window
   - Ctrl+Alt+Delete: Close all windows
    
     5c. Now, let's explore Omarchy's quick launchers:
