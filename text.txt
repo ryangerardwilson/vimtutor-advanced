@@ -1099,9 +1099,6 @@ set -o vi
     insert mode, then escape into normal mode, and hit v. Once you exit,
     whatever you typed will execute.
 
-    1f. remap your terminal navigation to use Alt+h/l for prev/next tabs,
-    instead of arrow key based approaches.
-
   2. Make your web browser shortcuts vim-ish. For the browser, we will
   maintain the convention of rooting all shortcuts in Ctrl.
 
