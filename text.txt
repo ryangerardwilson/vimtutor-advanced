@@ -1099,16 +1099,21 @@ set -o vi
     insert mode, then escape into normal mode, and hit v. Once you exit,
     whatever you typed will execute.
 
-  2. Make your web browser shortcuts vim-ish. For the browser, we will
-  maintain the convention of rooting all shortcuts in Ctrl.
+  2. Make your web browser shortcuts vim-ish. For the browser, we will maintain
+  the convention of rooting all shortcuts in Ctrl. For chromium based browsers,
+  simply install the shortkeys extenison, and go to this url:
+  chrome://extensions/shortcuts
 
-    2a. Remap your browser navigation to use Ctrl+h/l for prev/next tabs
-
-    2b. Remap your browser to use Ctrl+N for new tab, and Alt+Shift+W to
-    close the current tab. Likewise, Ctrl+R to reload the page.
-    
-    2c. Remap to use Ctrl+j/k for scroll up/down. You may need to manually
-    set this up via an extenison. 
+  - Ctrl+N: New tab
+  - Ctrl+W: Close tab
+  - Ctrl+H: Previous tab
+  - Ctrl+L: Next tab
+  - Ctrl+J: Scroll up
+  - Ctrl+K: Scroll down
+  - Ctrl+R: Reload tab
+  - Ctrl+Z: Zoom in
+  - Ctrl+Shift+Z: Zoom out
+  - Ctrl+D: Bookmark tab
     
   3. Shit post on X, as x has a lot of pure-keyboard experience shortcuts, for
   instance:
