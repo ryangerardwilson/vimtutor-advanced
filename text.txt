@@ -1108,8 +1108,8 @@ set -o vi
   - Ctrl+W: Close tab
   - Ctrl+H: Previous tab
   - Ctrl+L: Next tab
-  - Ctrl+J: Scroll up
-  - Ctrl+K: Scroll down
+  - Ctrl+U: Scroll up
+  - Ctrl+D: Scroll down
   - Ctrl+R: Reload tab
   - Ctrl+Z: Zoom in
   - Ctrl+Shift+Z: Zoom out
