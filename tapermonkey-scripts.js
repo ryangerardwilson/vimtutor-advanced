@@ -188,9 +188,9 @@
 // ==UserScript==
 // @name         Ctrl+H as Backspace in Input Fields
 // @namespace    http://tampermonkey.net/
-// @version      1.0
-// @description  Remaps Ctrl+H to act as Backspace in input and textarea elements across all websites
-// @author       Some random AI who’s tired of your shit
+// @version      1.1
+// @description  Remaps Ctrl+H to act as Backspace in input, textarea, and contenteditable elements across all websites
+// @author       Some random AI who’s *really* tired of your shit
 // @match        *://*/*
 // @grant        none
 // ==/UserScript==
@@ -198,29 +198,60 @@
 (function() {
     'use strict';
 
-    document.addEventListener('keydown', function(event) {
-        // Check if Ctrl+H is pressed and we're in an input or textarea
-        if (event.ctrlKey && event.key === 'h' && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA')) {
-            event.preventDefault(); // Stop default Ctrl+H behavior (like browser history)
-            // Simulate backspace
-            let input = document.activeElement;
-            let value = input.value;
-            let start = input.selectionStart;
-            let end = input.selectionEnd;
+    function handleCtrlH(event) {
+        // Check if Ctrl+H is pressed and we're in an input, textarea, or contenteditable
+        const isEditable = (
+            document.activeElement.tagName === 'INPUT' ||
+            document.activeElement.tagName === 'TEXTAREA' ||
+            document.activeElement.isContentEditable
+        );
 
-            if (start === end) {
-                // No selection: delete one character before cursor
-                if (start > 0) {
-                    input.value = value.slice(0, start - 1) + value.slice(start);
-                    input.selectionStart = input.selectionEnd = start - 1;
+        if (event.ctrlKey && event.key === 'h' && isEditable) {
+            event.preventDefault(); // Stop default Ctrl+H behavior
+            event.stopImmediatePropagation(); // Stop other handlers from stealing the event
+
+            let input = document.activeElement;
+            let value, start, end;
+
+            if (input.isContentEditable) {
+                // Handle contenteditable elements
+                let selection = window.getSelection();
+                if (!selection.rangeCount) return;
+                let range = selection.getRangeAt(0);
+                if (range.collapsed) {
+                    // No selection: delete one character before cursor
+                    range.setStart(range.startContainer, Math.max(0, range.startOffset - 1));
+                    range.deleteContents();
+                } else {
+                    // Selection exists: delete selected content
+                    range.deleteContents();
                 }
+                selection.removeAllRanges();
+                selection.addRange(range);
             } else {
-                // Selection exists: delete selected text
-                input.value = value.slice(0, start) + value.slice(end);
-                input.selectionStart = input.selectionEnd = start;
+                // Handle standard input/textarea
+                value = input.value;
+                start = input.selectionStart;
+                end = input.selectionEnd;
+
+                if (start === end) {
+                    // No selection: delete one character before cursor
+                    if (start > 0) {
+                        input.value = value.slice(0, start - 1) + value.slice(start);
+                        input.selectionStart = input.selectionEnd = start - 1;
+                    }
+                } else {
+                    // Selection exists: delete selected text
+                    input.value = value.slice(0, start) + value.slice(end);
+                    input.selectionStart = input.selectionEnd = start;
+                }
             }
         }
-    });
+    }
+
+    // Add listener in capture phase to beat framework event delegation
+    document.addEventListener('keydown', handleCtrlH, { capture: true });
 })();
+
 
 
