@@ -1100,21 +1100,38 @@ set -o vi
     whatever you typed will execute.
 
   2. Make your web browser shortcuts vim-ish. For the browser, we will maintain
-  the convention of rooting all shortcuts in Ctrl. For chromium based browsers,
-  simply install the shortkeys extenison, and go to this url:
-  chrome://extensions/shortcuts
+  the convention of rooting all navigation shortcuts in Ctrl+Shift. 
 
-  - Ctrl+N: New tab
-  - Ctrl+W: Close tab
-  - Ctrl+H: Previous tab
-  - Ctrl+L: Next tab
-  - Ctrl+U: Scroll up
-  - Ctrl+D: Scroll down
-  - Ctrl+R: Reload tab
-  - Ctrl+Z: Zoom in
+    2a. For chromium based browsers, simply install the shortkeys extenison,
+    and go to this url: chrome://extensions/shortcuts
+
+  - Ctrl+Shift+N: New tab
+  - Ctrl+Shift+W: Close tab
+  - Ctrl+Shift+H: Previous tab
+  - Ctrl+Shift+L: Next tab
+  - Ctrl+Shift+K: Scroll up
+  - Ctrl+Shift+J: Scroll down
+  - Ctrl+Shift+R: Reload tab
+  - Ctrl+Shift+X: Zoom in
   - Ctrl+Shift+Z: Zoom out
-  - Ctrl+D: Bookmark tab
-    
+
+    2b. However, some apps like grok, which we use often have weird JavaScript,
+    and we will require alternate keybindings to scroll bindings, which we will
+    set up with the SmoothKeyScroll extension, as well as the TaperMonkey
+    extension.
+
+  - In smooth key scroll: set the down movement to 30 px, the movement keys to
+    vim.
+
+  - In TaperMonkey: Adding the scripts set in the file tapermonkey-scripts.js
+    in this repo will allow us to:
+
+    - Use Ctrl+H: As backspace in input fields
+    - Use Ctrl+I: To focus on the nearest input field.
+    - Use Esc/Ctrl+[: To mimic 'normal mode' by escaping out of the input box,
+      and into the scrollable area.
+    - Use g/G in 'normal mode': To jump to end of the page/ start of the page.
+
   3. Shit post on X, as x has a lot of pure-keyboard experience shortcuts, for
   instance:
 
