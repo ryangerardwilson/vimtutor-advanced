@@ -1130,27 +1130,18 @@ set -o vi
     - Use Ctrl+I: To focus on the nearest input field.
     - Use Esc/Ctrl+[: To mimic 'normal mode' by escaping out of the input box,
       and into the scrollable area.
-    - Use g/G in 'normal mode': To jump to end of the page/ start of the page.
+
+    2c. Use the ShortcutKey2 extension to designate the Ctrl+. shortcut to
+    lauch specific apps. 
 
   3. Shit post on X, as x has a lot of pure-keyboard experience shortcuts, for
   instance:
 
-    3a. Use j/k to doom scroll.
+    3a. Use . to load new posts.
 
-    3b. Use . to load new posts.
-
-    3c. Use n for a new post, followed by Esc to cancel in case you suffer a
+    3b. Use n for a new post, followed by Esc to cancel in case you suffer a
     writer's block.
 
-    3d. Use gp to view your profile. 
-    
-    3e. Use gh to go back home.
-
-    3f. Use gu to search for a specific user.
-
-    3g. Use l to like a post, r to reply, t to repost, and s to share a post
-    (followed by Enter to copy the link of the post you want to share).
-   
   4. Use plain old ipython in the terminal. The native python REPL does not
   have the best vim support.
 
@@ -1214,13 +1205,13 @@ bind = ALT SHIFT, minus, resizeactive, 0 10
   - Alt+Tab: Cycle between windows in the same workspace.
   - Ctrl+Alt+Delete: Close all windows
    
-    5c. Now, let's explore Omarchy's quick launchers:
+    5c. Now, let's explore Omarchy's quick launchers. Unless, the quick
+    launcher experience is better than the browser exeperience (for instance
+    slack), you are better off using the chromium browser we have set up above.
 
   - Super+Space: Application Launcher
   - Super+Alt+Space: Omarchy Control Menu 
   - Super+Enter: For terminal
-  - Super+A: For you AI app
-  - Super+X: For X
   - Super+B: for your browser
   - Super+F: for a file system window
   - Super+T: for the CPU usage stats
