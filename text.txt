@@ -1105,15 +1105,13 @@ set -o vi
     2a. For chromium based browsers, simply install the shortkeys extenison,
     and go to this url: chrome://extensions/shortcuts
 
-  - Ctrl+Shift+N: New tab
+  - Ctrl+Shift+T: New tab
   - Ctrl+Shift+W: Close tab
   - Ctrl+Shift+H: Previous tab
   - Ctrl+Shift+L: Next tab
   - Ctrl+Shift+K: Scroll up
   - Ctrl+Shift+J: Scroll down
   - Ctrl+Shift+R: Reload tab
-  - Ctrl+Shift+X: Zoom in
-  - Ctrl+Shift+Z: Zoom out
 
     2b. However, some apps like grok, which we use often have weird JavaScript,
     and we will require alternate keybindings to scroll bindings, which we will
@@ -1131,7 +1129,7 @@ set -o vi
     - Use Esc/Ctrl+[: To mimic 'normal mode' by escaping out of the input box,
       and into the scrollable area.
 
-    2c. Use the ShortcutKey2 extension to designate the Ctrl+. shortcut to
+    2c. Use the ShortcutKey2 extension to designate the <Ctrl-.> shortcut to
     lauch specific apps. 
 
   3. Shit post on X, as x has a lot of pure-keyboard experience shortcuts, for
@@ -1321,6 +1319,25 @@ stdlib.h
 
   6. Now @a to play on next line. Or 2@a for the rest—bam, #include magic.
 
+  7. Now, lets use a macro to auto increment a vertical list.
+    - Start by putting your first number on a line.
+
+**[1]**
+
+    - Hit qa to start recording, followed by yy, p, ^, Ctrl+A, and q.
+    - Then invoke the macro 7 seven times with 7@a.
+
+**[1]**
+**[2]**
+**[3]**
+**[4]**
+**[5]**
+**[6]**
+**[7]**
+**[8]**
+**[9]**
+
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1343,18 +1360,41 @@ will thank you by crashing harder.
 --> Line2: xyz jkl mno
 --> Line3: pqr stu vwx
 
-  2. With block selected, d to delete it. u to undo.
+  2. With block selected, 
+  - d to delete it. u to undo.
+  - c, type "FOO", <esc>. Fills the block.
+  - I, for insert before: Select block on "abc", I"BAR ", <esc>—pads and
+    inserts left of block.
+  - A, for append after: Select on "ghi", A" ZAP", <esc>, <esc>—adds right,
+    pads shorter lines.
 
-  3. Again: Ctrl-V select same block, c, type "FOO", <esc>. Fills the
-  block.
-  
-  4. Now I for insert before: Select block on "abc", I"BAR ", <esc>—pads and inserts 
-     left of block.
+  3. Now, lets use Visual Block Mode to auto-increment a list.
+    - Start by creating duplicate lines. Use yy, followed by 9p.
 
---> Same lines as above.
+**[1]**
+**[1]**
+**[1]**
+**[1]**
+**[1]**
+**[1]**
+**[1]**
+**[1]**
+**[1]**
+**[1]**
 
-  5. A for append after: Select on "ghi", A" ZAP", <esc>, <esc>—adds right,
-  pads shorter lines.
+    - Enter visual block mode from the second in the list, and invoke g
+      <Ctrl-A>.
+
+**[1]**
+**[2]**
+**[3]**
+**[4]**
+**[5]**
+**[6]**
+**[7]**
+**[8]**
+**[9]**
+**[10]**
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
