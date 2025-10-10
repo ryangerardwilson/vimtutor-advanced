@@ -1095,7 +1095,21 @@ set -o vi
     1d. for terminal history: Get into normal mode, and use j/k to go to your
     previous/next commands.
 
-    1e. Using the full vim editor for your commands: Type some gibberish in
+	1e. Use the \ character, followed by Enter, to type multiline commands with
+	ease, while insert mode. NOTE: If you need to type in a '\' for REAL in the
+	command you will need to escape it with another '\' like '\\'. If you run
+	into trouble and need to edit something you typed in the previous line,
+	escape into command mode, follow the next tip in 1f below.
+
+echo "This\
+is\
+how\
+to\
+type\
+a\
+multiline terminal command"
+
+    1f. Using the full vim editor for your commands: Type some gibberish in
     insert mode, then escape into normal mode, and hit v. Once you exit,
     whatever you typed will execute.
 
