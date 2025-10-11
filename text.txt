@@ -1474,6 +1474,86 @@ open('')
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+			9.0 OMARCHY NEOVIM: THE EDITOR THAT WON'T MAKE YOU REGRET CHOOSING
+			ARCH, MOSTLY BEFORE YOU SUBMIT A CRAPPY PATCH 
+
+Look, you fool, if you're hacking away on Omarchy—that glorified Arch variant
+with all the pre-chewed configs so you don't have to RTFM like a real kernel
+developer—then Neovim is your weapon of choice, not some IDE bloatware that
+turns your machine into a space heater. Omarchy ships Neovim with LazyVim
+slapped on top, which is basically a plugin bundle that makes things tolerable
+without turning it into Emacs hell. It's got which-key to remind you of
+bindings before you rage-quit, bufferline to fake tabs with buffers (because
+real tabs are overrated), and enough sane defaults to keep you from shooting
+yourself in the foot. But don't get cocky; it's still Vim at heart, so learn
+the basics or go back to nano like the intern you are.
+
+Think of Neovim as the kernel: efficient, modular, and unforgiving if you screw
+up the config. Omarchy's setup hides the Lua cruft in ~/.config/nvim, with
+init.lua sourcing plugins via lazy.nvim—fine for noobs, but if it breaks after
+a pacman update, blame upstream, not me. Now, onto the meat: buffers, because
+juggling files like a pro means ditching tab delusions.
+
+			9.1 BUFFER NAVIGATION: BUFFERS AREN'T TABS, YOU IDIOT—NAVIGATE LIKE
+			YOU MEAN IT BEFORE YOUR SESSION TURNS INTO A MEMORY LEAK 
+
+In Neovim (and Vim, for that matter), buffers are the real MVPs—every file,
+scratch pad, or terminal is a buffer loaded in memory, ready to edit without
+the overhead of full windows or tabs. Tabs? Those are just glorified window
+layouts; Omarchy's LazyVim fakes 'em with bufferline.nvim, showing buffers at
+the top like tabs in a browser, but closing one doesn't nuke the buffer unless
+you tell it to. Confused? Good, that's how you learn—not by hand-holding like
+some distro manual. Mistake buffers for tabs, and you'll end up with ghosts
+haunting your tabline, like stale processes after a kernel oops.
+
+Navigation's dead simple: No need for gt/gT unless you're old-school. LazyVim
+remaps it for sanity—Shift-H (<S-h>) jumps to the previous buffer, Shift-L
+(<S-l>) to the next, cycling like a well-oiled scheduler. Want a picker? Hit
+Space bb (<leader>bb) for a fuzzy list; select and boom, you're there. For
+commands: :bnext or :bn forward, :bprevious or :bp backward. Jump to a specific
+one? :buffer N where N's the number from :buffers. Counts work too—3<S-l> skips
+three ahead, but who counts buffers like commits?
+
+Closing? Don't :tabclose unless it's a real tabpage; that'll leave buffer
+zombies. Instead, <leader>bd deletes the current buffer properly, or :bdelete
+(bd for short). Force it with ! if unsaved changes are trash. Wipe all but
+current? :bufdo bd but careful, that's a nuke. And if Omarchy's Wayland flakes
+out, redraw with Ctrl-L—terminals love glitching like bad drivers.
+
+  1. Open a few files: nvim file1.c file2.h file3.py. Top bar shows 'em as
+  "tabs" thanks to bufferline. Smash <S-h> to left, <S-l> right—feels like tab
+  navigation but smarter.
+
+  2. List 'em: :ls or :buffers. See numbers? :b 2 jumps to the second. Or from
+  picker: <space>bb, fuzzy search "file2", Enter.
+
+  3. Close current: <space>bd. Gone from top, buffer freed. If it nags about
+  changes, :bd! or save first with :w. Undo with u if you fat-fingered it.
+
+  4. Use <space>cf to format your code
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                   LESSON 9 SUMMARY
+
+  1. Omarchy's Neovim uses LazyVim: Plugins like which-key for bindings,
+  bufferline for fake tabs—check ~/.config/nvim for the Lua mess.
+
+  2. Buffers > tabs: Files load as buffers; navigate with <S-h> prev, <S-l>
+  next in LazyVim.
+
+  3. Picker: <space>bb for fuzzy buffer list; :bn/:bp or :b N for
+  commands.
+
+  4. Close: <space>bd or :bd—deletes buffer properly; ! to force unsaved.
+
+  5. Redraw with Ctrl-L if glitches; pin with <leader>bp for sticky buffers.
+ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 
