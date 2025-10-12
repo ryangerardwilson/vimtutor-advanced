@@ -1399,7 +1399,7 @@ huge, so that your editing experience remains nice and snappy.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-9.2 BUFFER NAVIGATION: BUFFERS AREN'T TABS
+9.2 BUFFER & DIR TREE NAVIGATION
 
 1. Open a few files: nvim file1.c file2.h file3.py. Top bar shows 'em as "tabs"
 thanks to bufferline. Smash <S-h> to left, <S-l> right—feels like tab
@@ -1409,6 +1409,17 @@ navigation but smarter.
 
 3. Close current: <space>bd. Gone from top, buffer freed. If it nags about
 changes, :bd! or save first with :w. Undo with u if you fat-fingered it.
+
+4. Hit <leader>e to toggle the file explorer sidebar—bam, there's your
+directory tree, nested and pretty. Navigate with hjkl (what else?)
+
+- hit <leader>e once more to close it.
+
+- enter to open files into buffers, or d to delete if something offends you.
+
+- Want to focus just on the tree? <leader>E does a full-panel view.
+
+- Filter with / for search, and if you're digging deep, ? pulls up help.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1421,27 +1432,22 @@ Telescope, LazyVim's fuzzy finder plugin that searches faster than you can type
 to death. Use it wrong, and you'll still be lost; use it right, and you'll look
 like you know what you're doing.
 
-1. Fire it up with <space>ff to find files—type a few letters, and it fuzzy-
+1. Use <Space>fb to fuzzy search within the current file, use <Ctrl-n>/<Ctrl-p>
+to toggle, and hit enter to go to the line you want.
+
+2. Fire it up with <space>ff to find files—type a few letters, and it fuzzy-
 matches across your cwd. Hit Enter to open in the current buffer, or
 Ctrl-v/Ctrl-x for vertical/horizontal split. Pro: Ignores .git crap by default;
 con: If your repo's huge, blame Git, not Neovim.
 
-2. Search inside files: <space>fg for live grep. Type your query, and it rips
-through contents with ripgrep (Omarchy ships it, right? If not, pacman -S
-ripgrep, you lazy bum). Results show context lines—select and jump straight to
-the line. Add --hidden or whatever flags if you're digging in dotfiles.
+3. Search inside specific files: <space>fg for live grep. Type your query, and
+it rips through contents with ripgrep (Omarchy ships it, right? If not, pacman
+-S ripgrep, you lazy bum). Results show context lines—select and jump straight
+to the line. Add --hidden or whatever flags if you're digging in dotfiles.
 
-3. Buffer hopping: <space>fb lists open buffers fuzzy-style. Way better than
+4. Buffer hopping: <space>fb lists open buffers fuzzy-style. Way better than
 cycling with <S-h/l>. Or <space>fh for help tags if you're too proud to :help
 but need a reminder on some obscure command.
-
-4. Git goodies: <space>gs for git status, <space>gc for commits—fuzzy search
-history like a pro. Stage hunks or blame lines without leaving Neovim. If
-Telescope bitches about missing deps, check Mason or yell at upstream.
-
-This is why Neovim beats Vim classic: plugins that actually work without 50
-lines of config. But if you over-rely on fuzzy, you'll forget real
-commands—don't be that guy submitting patches with typos.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 LESSON 9 SUMMARY
@@ -1449,5 +1455,7 @@ LESSON 9 SUMMARY
 1. The correct set up, makes things easy.
 
 2. Lazyvim works with "buffers", not "tabs". Its easier to navigate buffers.
+
+3. Use <Space>fb to fuzzy search within the current file.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
