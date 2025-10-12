@@ -34,8 +34,9 @@ Lesson 1.1:  MOVING THE CURSOR
 
 1. Move the cursor around the screen until you are comfortable.
 
-2. Hold down the down key (j) until it repeats. ---> Now you know how to move
-to the next lesson.
+2. Hold down the down key (j) until it repeats.
+
+---> Now you know how to move to the next lesson.
 
 3. Using the down key, move to Lesson 1.2.
 
@@ -102,7 +103,9 @@ first character AFTER where the text is to be inserted.
 4. As each error is fixed press <ESC> to return to Normal mode.  Repeat steps 2
 through 4 to correct the sentence.
 
----> There is text misng this . ---> There is some text missing from this line.
+---> There is text misng this . 
+
+---> There is some text missing from this line.
 
 5. When you are comfortable inserting text move to the summary below.
 
@@ -1325,8 +1328,8 @@ manner shown below.
 2. Use open a random file with `nvim filename`, and hit the :Mason command .
 Mason is a bundler that helps you manage LSP servers, linters, and formatters
 without descending into configuration hell.  Then search for 'prettier',
-'clang_format' and 'black', and hit 'Enter' followed by 'i' to install them.
-You can likewise use 'r' to remove them.
+'clang_format' and 'ruff', and hit 'Enter' followed by 'i' to install them. You
+can likewise use 'X' to remove them.
 
 3. Create a file `~/.config/nvim/lua/plugins/conform.lua`, and set its content
 to the below. As you can see, you can even specify custom formatters. Now, note
@@ -1338,7 +1341,7 @@ that hitting :w to save the buffer, will auto-format it.
         opts = {
           formatters_by_ft = {
             c = { "clang_format" },
-            python = { "black" },
+            python = { "ruff_format" },
             javascript = { "prettier" },
             typescript = { "prettier" },
             jsx = { "prettier" },
@@ -1348,19 +1351,21 @@ that hitting :w to save the buffer, will auto-format it.
             json = { "prettier" },
             yaml = { "prettier" },
             markdown = { "md_custom" },
-        },
+          },
           formatters = {
+            ruff_format = {
+              extra_args = { "--line-length", "79" },
+            },
             md_custom = {
               command = "python3",
               args = { ".config/nvim/custom_python_automations/format_md.py", "$FILENAME" },
               stdin = false,
-              cwd = require("conform.util").root_file({".git"}),
+              cwd = require("conform.util").root_file({ ".git" }),
             },
           },
         },
       },
     }
-
 
 4. Create a symbolic link linking vi to a python script, `smart-vi.py`, which
 automatically routes your file to vanilla vim in the event the file size is
@@ -1450,6 +1455,18 @@ cycling with <S-h/l>. Or <space>fh for help tags if you're too proud to :help
 but need a reminder on some obscure command.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+9.4: USING THE TERMINAL—KEEP IT LEAN, NO TMUX CRAP
+
+1. Toggle: Hit Ctrl+/ (or Ctrl+_) in normal mode to open/close a bottom-split
+terminal. Run your builds or git commands right there, no leaving Neovim.
+
+2. Navigate: From code, Ctrl+w j jumps down to terminal. Execute stuff, then
+Ctrl+w k back up. Stuck in insert? Ctrl+\ Ctrl+n to normal mode first.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 LESSON 9 SUMMARY
 
 1. The correct set up, makes things easy.
@@ -1458,4 +1475,5 @@ LESSON 9 SUMMARY
 
 3. Use <Space>fb to fuzzy search within the current file.
 
+4. Use Ctrl+/ to toggle the terminal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
