@@ -1366,6 +1366,23 @@ that hitting :w to save the buffer, will auto-format it.
         },
       },
     }
+    
+3. Create a file `~/.config/nvim/lua/config/autocmds.lua`, to make sure that
+your c code indents properly. For some reason, nvim's treesitter needs
+additional configuration to handle c files properly.
+
+    vim.api.nvim_create_autocmd("BufEnter", {
+      pattern = "*.c",
+      callback = function()
+        vim.bo.tabstop = 4
+        vim.bo.softtabstop = 4
+        vim.bo.shiftwidth = 4
+        vim.bo.expandtab = false
+        vim.bo.indentexpr = ""
+        vim.bo.cindent = true
+        vim.bo.smartindent = false
+      end,
+    })
 
 4. Create a symbolic link linking vi to a python script, `smart-vi.py`, which
 automatically routes your file to vanilla vim in the event the file size is
@@ -1403,8 +1420,17 @@ huge, so that your editing experience remains nice and snappy.
     subprocess.call([editor] + filenames)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+9.2 A FEW THINGS TO UNLEARN
 
-9.2 BUFFER & DIR TREE NAVIGATION
+1. Use %d _ instead of %d to nuke the buffer: In vanilla vim, we got away with
+simply using %d to nuke the buffer, as it did not interfere with the systems
+clipboard register. However, using this with nvim will override whats there in
+your clipboard, which is why, you need to be more precise by specifying _
+following the %d command.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+9.3 BUFFER & DIR TREE NAVIGATION
 
 1. Open a few files: nvim file1.c file2.h file3.py. Top bar shows 'em as "tabs"
 thanks to bufferline. Smash <S-h> to left, <S-l> right—feels like tab
@@ -1428,7 +1454,7 @@ directory tree, nested and pretty. Navigate with hjkl (what else?)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-9.3: FUZZY FINDING WITH TELESCOPE: STOP GREP-ING LIKE A CAVEMAN
+9.4: FUZZY FINDING WITH TELESCOPE: STOP GREP-ING LIKE A CAVEMAN
 
 Alright, genius, you've got buffers and splits—now what if your project's a
 sprawling mess of files, like the Linux source tree after a bad merge? Enter
@@ -1456,7 +1482,7 @@ but need a reminder on some obscure command.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-9.4: USING THE TERMINAL—KEEP IT LEAN, NO TMUX CRAP
+9.5: USING THE TERMINAL—KEEP IT LEAN, NO TMUX CRAP
 
 1. Toggle: Hit Ctrl+/ (or Ctrl+_) in normal mode to open/close a bottom-split
 terminal. Run your builds or git commands right there, no leaving Neovim.
@@ -1471,9 +1497,12 @@ LESSON 9 SUMMARY
 
 1. The correct set up, makes things easy.
 
-2. Lazyvim works with "buffers", not "tabs". Its easier to navigate buffers.
+2. Use %d _ to nuke in nvim instead of %d.
 
-3. Use <Space>fb to fuzzy search within the current file.
+3. Lazyvim works with "buffers", not "tabs". Its easier to navigate buffers.
 
-4. Use Ctrl+/ to toggle the terminal
+4. Use <Space>fb to fuzzy search within the current file.
+
+5. Use Ctrl+/ to toggle the terminal
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
