@@ -1422,11 +1422,9 @@ huge, so that your editing experience remains nice and snappy.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 9.2 A FEW THINGS TO UNLEARN
 
-1. Use %d _ instead of %d to nuke the buffer: In vanilla vim, we got away with
-simply using %d to nuke the buffer, as it did not interfere with the systems
-clipboard register. However, using this with nvim will override whats there in
-your clipboard, which is why, you need to be more precise by specifying _
-following the %d command.
+1. Using d, %d, dd, D, yank WILL copy whatever you select/delete to the system
+clipboard, overriding stuff that is already in youre clipboard. So, be mindful
+of this.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1497,7 +1495,7 @@ LESSON 9 SUMMARY
 
 1. The correct set up, makes things easy.
 
-2. Use %d _ to nuke in nvim instead of %d.
+2. Using d, %d, dd, yank - all copy the affected text to the system clipboard.
 
 3. Lazyvim works with "buffers", not "tabs". Its easier to navigate buffers.
 
