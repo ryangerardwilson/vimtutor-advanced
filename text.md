@@ -1287,7 +1287,11 @@ drama.
 
 1. Open a new buffer: `:e filename` (e.g., `:e header.h`). Loads into new
 buffer, hides current. You can also open multiple buffers by specifyin multiple
-arguments into the vim command i.e. `vim file1 file2 file3`.
+arguments into the vim command i.e. `vim file1 file2 file3`. You can even open
+all files of a specific extension as a buffer in a dir, using:
+
+    vim dir/*.c # for all files within a dir
+    vim dir/**/*.c # for all files within a dir recursively 
 
 2. List buffers: `:ls` – Shows number, flags, filename, line (e.g., `1 %a
 "main.c" line 42`).
