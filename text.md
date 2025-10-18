@@ -1326,4 +1326,6 @@ size.
 5. In insert mode, Ctrl+n toggles completions. We also have the Ctrl+x for
 completion mode.
 
+6. Don't open multiple terminal tabs or use neovim, simply use vim buffers.
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
