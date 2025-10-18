@@ -1279,6 +1279,38 @@ your file matching the start. Great for duplicating boilerplate without copy-
 paste crimes.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+8.6: VIM BUFFERS
+
+Buffers: Vim's lightweight file handlers—load multiple files, switch without
+drama.
+
+1. Open a new buffer: `:e filename` (e.g., `:e header.h`). Loads into new
+buffer, hides current. You can also open multiple buffers by specifyin multiple
+arguments into the vim command i.e. `vim file1 file2 file3`.
+
+2. List buffers: `:ls` – Shows number, flags, filename, line (e.g., `1 %a
+"main.c" line 42`).
+
+3. Switch by number: `:b 3` – Jumps to buffer 3.
+
+4. Switch by partial name: `:b mai<Tab>` – Fuzzy matches, tab-completes.
+
+5. Add this to your `.vimrc` to toggle between buffers using `Ctrl-n` and
+`Ctrl-p`.
+
+    nnoremap <C-n> :bnext<CR>
+    nnoremap <C-p> :bprevious<CR>
+
+Toggle last two: `Ctrl-^` (Ctrl-6) – Flips between current and previous buffer.
+
+6. Save and close all buffers with `:wqa`, or save without closing using `:wq`.
+
+7. Save and close a specific buffer with `:w | bd` or `:bd` to close without
+saving. You can pair `:bd <number>` to close a specific buffer.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 LESSON 8 SUMMARY
 
 1. Add "set -o vi" to your ~/.bashrc to avoid bad habits when exiting vim.
