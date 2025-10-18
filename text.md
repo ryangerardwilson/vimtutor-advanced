@@ -992,6 +992,10 @@ echo "This\ is\ how\ to\ type\ a\ multiline terminal command"
 mode, then escape into normal mode, and hit v. Once you exit, whatever you
 typed will execute.
 
+1g. Also, use Alacritty as your default terminal, this way you can toggle vi
+mode easily via Ctrl-Shift-Space, and use the power of normal mode vim to
+scroll.
+
 2. Make your web browser shortcuts vim-ish. For the browser, we will maintain
 the convention of rooting all navigation shortcuts in Ctrl+Shift.
 
@@ -1003,6 +1007,7 @@ to this url: chrome://extensions/shortcuts
 - Ctrl+Shift+R: Reload tab
 
 2b. However, some apps like grok, which we use often have weird JavaScript, and
+
 we will require alternate keybindings to scroll bindings, which we will set up
 with the SmoothKeyScroll extension, as well as the TaperMonkey extension.
 
