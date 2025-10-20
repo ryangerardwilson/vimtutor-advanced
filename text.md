@@ -1091,6 +1091,9 @@ Super+Enter: For terminal - Super+B: for your browser - Super+F: for a file
 system window - Super+T: for the CPU usage stats - Super+M: for your music
 app/Spotify - Super+Esc: to restart/shutdown computer
 
+5d. Omarchy just makes it easier to copy paste across interfaces, with a
+unified Super-c/v, as well as a clipboard manager with Super-Ctrl-v.
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 8.2 EDITING IN INSERT MODE WITH CTRL+O CHEATS AND TARGETED DELETES
