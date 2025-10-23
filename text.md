@@ -1002,9 +1002,13 @@ the convention of rooting all navigation shortcuts in Ctrl+Shift.
 2a. For chromium based browsers, simply install the shortkeys extenison, and go
 to this url: chrome://extensions/shortcuts
 
-- Ctrl+Shift+T: New tab - Ctrl+Shift+W: Close tab - Ctrl+Shift+H: Previous tab
-- Ctrl+Shift+L: Next tab - Ctrl+Shift+K: Scroll up - Ctrl+Shift+J: Scroll down
-- Ctrl+Shift+R: Reload tab
+    - Ctrl+N: New tab 
+    - Ctrl+W: Close tab 
+    - Ctrl+LeftArrow: Previous tab
+    - Ctrl+RightArrow: Next tab 
+    - Ctrl+K: Scroll up 
+    - Ctrl+J: Scroll down
+    - Ctrl+R: Reload tab
 
 2b. However, some apps like grok, which we use often have weird JavaScript, and
 
@@ -1032,66 +1036,54 @@ instance:
 3b. Use n for a new post, followed by Esc to cancel in case you suffer a
 writer's block.
 
-4. Use plain old ipython in the terminal. The native python REPL does not have
-the best vim support.
+4. Just use Omarchy as your OS, to avoid using the cursor.
 
-4a. Set up your ipyhton to use vim.
+4a. Set up custom keybindings, with the following principles in mind:
 
-    vi ~/.ipython/profile_default/ipython_config.py
+    (a) Super: to root workspace navigation; 
+    (b) Alt: to root window navigation; and 
+    (c) Ctrl: to root App navigation.
 
-    c.InteractiveShell.editing_mode = 'vi' c = get_config()
-    c.TerminalInteractiveShell.modal_cursor = False
+    vi ~/.config/hypr/bindings.conf 
+    # Add this at the bottom 
+    # Workspace Navigation
+    bind = SUPER, H, workspace, -1
+    bind = SUPER, L, workspace, +1
+    bind = SUPER, KP_Home, workspace, -1
+    bind = SUPER, KP_Prior, workspace, +1  
 
-4b. Notice that in ipython the fact that you are in insert mode is evident by
-the use of [ins] at the start of the line. When you escape to normal mode, this
-changes to [nav]
+    # Window Navigation
+    bind = ALT, KP_Left, movefocus, l
+    bind = ALT, KP_Up, movefocus, u
+    bind = ALT, KP_Right, movefocus, r
+    bind = ALT, KP_Begin, movefocus, d
+    bind = ALT, H, movefocus, l
+    bind = ALT, L, movefocus, r
+    bind = ALT, J, movefocus, d
+    bind = ALT, K, movefocus, u
 
-4b. Ctrl+p: Start typing, you will see an auto complete suggestion. This is the
-most likely suggestion/ best match. Hit Ctrl + p once more to go to the next
-best match, and Ctrl+n to go upwards in terms of probability.
-
-4c. Ctrl+r: searches command history, hit enter to load the command (but not
-execute it). After hitting Enter, use Ctrl+n/p to cycle.
-
-4d. %clear and %reset -f: Type these to clear the screen, and to reset all
-variables in memory, respectively.
-
-4e. Ctrl+d: Exits ipython
-
-5. Just use Omarchy as your OS, to avoid using the cursor.
-
-5a. Set up custom keybindings, with the following principles in mind (a) Super:
-to root workspace navigation; (b) Alt: to root window navigation; and (c) Ctrl:
-to root App navigation.
-
-vi ~/.config/hypr/bindings.conf # Add this at the bottom # Workspace Navigation
-bind = SUPER, H, workspace, -1 bind = SUPER, L, workspace, +1 # Window
-Navigation bind = ALT, H, movefocus, l bind = ALT, L, movefocus, r bind = ALT,
-J, movefocus, d bind = ALT, K, movefocus, u bind = ALT_SHIFT, H, swapwindow, l
-bind = ALT_SHIFT, L, swapwindow, r bind = ALT_SHIFT, J, swapwindow, d bind =
-ALT_SHIFT, K, swapwindow, u # Window Management bind = ALT, W, killactive, bind
-= ALT, T, togglesplit, bind = ALT, equal, resizeactive, 10 0 bind = ALT, minus,
-resizeactive, -10 0 bind = ALT SHIFT, equal, resizeactive, 0 -10 bind = ALT
-SHIFT, minus, resizeactive, 0 10
-
-5b. Now, use Super+H/L to move between workspaces, Alt+h/j/k/l to move between
+4b. Now, use Super+H/L to move between workspaces, Alt+h/j/k/l to move between
 windows within a workspace, and Alt+Shift+h/j/k/l to swap windows. Now, open a
 gazillion workspaces and tabs, and practice the above. While, at it, you can
 also experiment with the below Omarchy defaults.
 
-- Alt+Tab: Cycle between windows in the same workspace. - Ctrl+Alt+Delete:
-Close all windows
+    - Alt+Tab: Cycle between windows in the same workspace. 
+    - Ctrl+Alt+Delete: Close all windows
    
-5c. Now, let's explore Omarchy's quick launchers.  Unless, the quick launcher
+4c. Now, let's explore Omarchy's quick launchers.  Unless, the quick launcher
 experience is better than the browser exeperience (for instance slack), you are
 better off using the chromium browser we have set up above.
 
-- Super+Space: Application Launcher - Super+Alt+Space: Omarchy Control Menu -
-Super+Enter: For terminal - Super+B: for your browser - Super+F: for a file
-system window - Super+T: for the CPU usage stats - Super+M: for your music
-app/Spotify - Super+Esc: to restart/shutdown computer
+    - Super+Space: Application Launcher 
+    - Super+Alt+Space: Omarchy Control Menu 
+    - Super+Enter: For terminal 
+    - Super+B: for your browser 
+    - Super+D: for a file system window 
+    - Super+T: for the CPU usage stats 
+    - Super+M: for your music app/Spotify 
+    - Super+Esc: to restart/shutdown computer
 
-5d. Omarchy just makes it easier to copy paste across interfaces, with a
+4d. Omarchy just makes it easier to copy paste across interfaces, with a
 unified Super-c/v, as well as a clipboard manager with Super-Ctrl-v.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
