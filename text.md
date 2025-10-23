@@ -1049,14 +1049,16 @@ writer's block.
     # Workspace Navigation
     bind = SUPER, H, workspace, -1
     bind = SUPER, L, workspace, +1
-    bind = SUPER, KP_Home, workspace, -1
-    bind = SUPER, KP_Prior, workspace, +1  
+    bind = SUPER, KP_Left, workspace, -1
+    bind = SUPER, KP_Right, workspace, +1  
 
     # Window Navigation
+    unbind = SUPER, W
+    bind = ALT, W, killactive
     bind = ALT, KP_Left, movefocus, l
     bind = ALT, KP_Up, movefocus, u
     bind = ALT, KP_Right, movefocus, r
-    bind = ALT, KP_Begin, movefocus, d
+    bind = ALT, KP_Down, movefocus, d
     bind = ALT, H, movefocus, l
     bind = ALT, L, movefocus, r
     bind = ALT, J, movefocus, d
